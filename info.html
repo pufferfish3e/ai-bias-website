@@ -1,0 +1,910 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Favicon -->
+        <link rel="icon" href="assets/icons/icon.svg" />
+        <!-- Bootstrap CDN -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        <!-- Bootstrap Icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+        />
+        <title>Unfair by Design | Info</title>
+    </head>
+    <body>
+        <header>
+            <!-- Sidebar Toggle Button (for all screens) -->
+            <button
+                id="sidebarToggle"
+                class="btn btn-light position-fixed top-0 start-0 m-3 z-3 bg-transparent text-white border-0 fs-4"
+            >
+                ☰
+            </button>
+
+            <!-- Sidebar -->
+            <nav
+                id="sidebar"
+                class="rounded p-3 vh-100 position-fixed top-0 start-0 liquidglass bg-transparent"
+            >
+                <div class="d-flex flex-column h-100">
+                    <div
+                        class="d-flex justify-content-between align-items-center"
+                    >
+                        <a
+                            class="navbar-brand icon-text icon-font text-white"
+                            href="#"
+                            >Unfair By Design</a
+                        >
+                    </div>
+                    <ul class="nav flex-column mt-4">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 text-white" href="/"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link fs-5 text-white"
+                                href="/info.html"
+                                >Info</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link fs-5 text-white"
+                                href="/forum.html"
+                                >Forum</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav-login" class="nav-link fs-5 text-white"
+                                >Login</a
+                            >
+                        </li>
+                    </ul>
+                    <ul class="mt-auto container d-flex flex-column">
+                        <li>
+                            <a
+                                class="nav-link text-white mb-2"
+                                href="https://pufferfish.vercel.app"
+                                >Contact</a
+                            >
+                        </li>
+                        <li class="nav-link text-white">
+                            &copy; 2025 Unfair By Design.
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled d-flex flex-row w-100 gap-3">
+                        <li><i class="fs-4 bi bi-linkedin"></i></li>
+                        <li><i class="fs-4 bi bi-github"></i></li>
+                        <li><i class="fs-4 bi bi-twitter"></i></li>
+                        <li><i class="fs-4 bi bi-instagram"></i></li>
+                    </ul>
+                    <form>
+                        <input
+                            id="search-input"
+                            class="form-control bg-transparent text-white shadow-none"
+                            type="search"
+                            placeholder="Type / to search"
+                            aria-label="Search"
+                        />
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <main class="container-fluid p-0">
+            <section class="info-hero">
+                <div class="hero-image-crop">
+                    <img src="assets/images/office.jpg" alt="Hero Background" />
+                </div>
+                <div
+                    class="container h-100 d-flex flex-column justify-content-center align-items-center text-center gap-2"
+                >
+                    <h1 class="appear text-center fs-xl gradient-glass-text">
+                        Singapore is <strong>obsessed</strong> with AI.
+                    </h1>
+                    <h5 class="fs-4 appear text-center text-secondary mt-2">
+                        No seriously. 57% of companies here say AI is
+                        <strong>critical</strong> to their work.
+                    </h5>
+                    <h5 class="fs-4 appear text-center text-secondary mt-2">
+                        That's more than in the US, Europe, or the rest of Asia.
+                    </h5>
+                    <i
+                        class="bi bi-chevron-double-down text-white fs-1 z-2 mt-5 appear"
+                    ></i>
+                </div>
+            </section>
+            <div
+                class="container d-flex flex-column align-items-center py-5 gap-5"
+            >
+                <p class="fs-4 w-75 text-center text-secondary fade-in">
+                    Guess What? It's not just big businesses—students, workers,
+                    and even content creators are using AI for everything, from
+                    writing code to crafting Instagram captions.
+                </p>
+                <p class="fs-4 w-75 text-center text-secondary fade-in">
+                    From productivity boosts to policy breaches, AI is becoming
+                    deeply embedded in the workplace.
+                </p>
+            </div>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                    <div class="col">
+                        <div class="card liquidglass text-white fade-in">
+                            <div class="card-body">
+                                <h5
+                                    class="card-title fs-xl text-center animated-number"
+                                    data-target="40"
+                                    data-suffix="%"
+                                >
+                                    0
+                                </h5>
+                                <p class="card-text text-center">
+                                    Using AI at Work
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card liquidglass text-white fade-in">
+                            <div class="card-body">
+                                <h5
+                                    class="card-title fs-xl text-center animated-number"
+                                    data-target="52"
+                                    data-suffix="%"
+                                >
+                                    0
+                                </h5>
+                                <p class="card-text text-center">
+                                    Incorporating AI into jobs
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card liquidglass-light text-white fade-in">
+                            <div class="card-body">
+                                <h5
+                                    class="card-title fs-xl text-center animated-number"
+                                    data-target="76"
+                                    data-suffix="%"
+                                >
+                                    0
+                                </h5>
+                                <p class="card-text text-center">
+                                    Miscredit AI work as their own
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card liquidglass-light text-white fade-in">
+                            <div class="card-body">
+                                <h5
+                                    class="card-title fs-xl text-center animated-number"
+                                    data-target="48"
+                                    data-suffix="%"
+                                >
+                                    0
+                                </h5>
+                                <p class="card-text text-center">
+                                    Use banned AI platforms
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="container mt-5 py-5 min-vw-100">
+                <div class="text-center mt-5 w-75 mx-auto">
+                    <h2 class="gradient-glass-text fs-1 fade-in">
+                        However, there's a catch...
+                    </h2>
+                    <p class="mt-5 fs-4 text-secondary fade-in">
+                        In late 2024, Singapore ran its first-ever
+                        <a
+                            href="https://www.straitstimes.com/singapore/landmark-singapore-study-flags-racial-cultural-gender-biases-in-ai-models"
+                            >AI safety challenge</a
+                        >. Think of it like Capture the Flag...
+                    </p>
+                    <p class="mt-5 fs-4 text-secondary fade-in">
+                        but instead of breaking into servers, people tried to
+                        make AI reveal its <b>biases</b>.
+                    </p>
+                    <h2 class="gradient-glass-text fs-1 mt-5 mb-5 fade-in">
+                        Spoiler: It worked.
+                    </h2>
+                </div>
+                <div class="accordion" id="safetyChallengeAccordion">
+                    <div
+                        class="accordion-item liquidglass text-white fade-in w-75 mx-auto"
+                    >
+                        <h2 class="accordion-header">
+                            <button
+                                class="accordion-button liquidglass"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne"
+                                aria-expanded="true"
+                                aria-controls="collapseOne"
+                            >
+                                What Did They Do?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapseOne"
+                            class="collapse"
+                            data-bs-parent="#safetyChallengeAccordion"
+                        >
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        Tested 4 major AI models: Claude, Llama,
+                                        SEA-LION, Aya
+                                    </li>
+                                    <li>Across 9 countries</li>
+                                    <li>300+ testers</li>
+                                    <li>
+                                        Prompted AIs with real-life scenarios in
+                                        multiple languages
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2
+                    class="fs-2 text-white fade-in text-center w-75 mt-5 mx-auto"
+                >
+                    And here's what they found:
+                </h2>
+                <section class="py-md-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div
+                                class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6"
+                            >
+                                <div class="liquidglass fade-in widget-card">
+                                    <div class="card-body p-4">
+                                        <h1
+                                            class="gradient-glass-text widget-card-title mb-1"
+                                        >
+                                            Bias Categories
+                                        </h1>
+                                        <p class="fs-7 text-secondary mb-4">
+                                            % of total
+                                        </p>
+                                        <div
+                                            id="bsb-chart-7"
+                                            class="mb-4"
+                                        ></div>
+                                        <div class="row gy-4">
+                                            <div class="col-12">
+                                                <div
+                                                    class="row align-items-center"
+                                                >
+                                                    <div class="col-8">
+                                                        <div
+                                                            class="d-flex align-items-center"
+                                                        >
+                                                            <div>
+                                                                <div
+                                                                    class="fs-5 bg-primary-subtle text-primary rounded-2 me-2 py-1 px-2 d-flex align-items-center justify-content-center bsb-w-50 bsb-h-50"
+                                                                >
+                                                                    <i
+                                                                        class="bi bi-gender-male m-0 p-0"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <h6
+                                                                    class="text-white m-0"
+                                                                >
+                                                                    Gender
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <h6
+                                                            class="fs-7 d-flex align-items-center justify-content-end m-0"
+                                                        >
+                                                            <span
+                                                                class="bg-primary-subtle text-primary rounded-2 py-1 px-2"
+                                                                >26.1%</span
+                                                            >
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div
+                                                    class="row align-items-center"
+                                                >
+                                                    <div class="col-8">
+                                                        <div
+                                                            class="d-flex align-items-center"
+                                                        >
+                                                            <div>
+                                                                <div
+                                                                    class="fs-5 bsb-w-50 bsb-h-50 bg-success-subtle text-success rounded-2 d-flex align-items-center justify-content-center py-1 px-2 me-2"
+                                                                >
+                                                                    <i
+                                                                        class="bi bi-house m-0 p-0"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <h6
+                                                                    class="text-white m-0"
+                                                                >
+                                                                    Racial/Ethnic/Religious
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <h6
+                                                            class="fs-7 d-flex align-items-center justify-content-end m-0"
+                                                        >
+                                                            <span
+                                                                class="bg-success-subtle text-success rounded-2 py-1 px-2"
+                                                                >22.8%</span
+                                                            >
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div
+                                                    class="row align-items-center"
+                                                >
+                                                    <div class="col-8">
+                                                        <div
+                                                            class="d-flex align-items-center"
+                                                        >
+                                                            <div>
+                                                                <div
+                                                                    class="fs-5 bsb-w-50 bsb-h-50 bg-danger-subtle text-danger rounded-2 d-flex align-items-center justify-content-center me-2 py-1 px-2"
+                                                                >
+                                                                    <i
+                                                                        class="bi bi-flag m-0 p-0"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <h6
+                                                                    class="text-white m-0"
+                                                                >
+                                                                    Geographic/National
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <h6
+                                                            class="fs-7 d-flex align-items-center justify-content-end m-0"
+                                                        >
+                                                            <span
+                                                                class="bg-danger-subtle text-danger rounded-2 py-1 px-2"
+                                                                >22.6%</span
+                                                            >
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div
+                                                    class="row align-items-center"
+                                                >
+                                                    <div class="col-8">
+                                                        <div
+                                                            class="d-flex align-items-center"
+                                                        >
+                                                            <div>
+                                                                <div
+                                                                    class="fs-5 bsb-w-50 bsb-h-50 bg-warning-subtle text-warning rounded-2 d-flex align-items-center justify-content-center me-2 py-1 px-2"
+                                                                >
+                                                                    <i
+                                                                        class="bi bi-cash-coin m-0 p-0"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <h6
+                                                                    class="text-white m-0"
+                                                                >
+                                                                    Socio-Economic
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <h6
+                                                            class="fs-7 d-flex align-items-center justify-content-end m-0"
+                                                        >
+                                                            <span
+                                                                class="bg-warning-subtle text-warning rounded-2 py-1 px-2"
+                                                                >19%</span
+                                                            >
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div
+                                                    class="row align-items-center"
+                                                >
+                                                    <div class="col-8">
+                                                        <div
+                                                            class="d-flex align-items-center"
+                                                        >
+                                                            <div>
+                                                                <div
+                                                                    class="fs-5 bsb-w-50 bsb-h-50 bg-info-subtle text-info rounded-2 d-flex align-items-center justify-content-center me-2 py-1 px-2"
+                                                                >
+                                                                    <i
+                                                                        class="bi bi-patch-question m-0 p-0"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <h6
+                                                                    class="text-white m-0"
+                                                                >
+                                                                    Other
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <h6
+                                                            class="fs-7 d-flex align-items-center justify-content-end m-0"
+                                                        >
+                                                            <span
+                                                                class="bg-info-subtle text-info rounded-2 py-1 px-2"
+                                                                >8.5%</span
+                                                            >
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    class="container-fluid d-flex justify-content-center align-items-center text-center py-5 vh-100 flex-column"
+                >
+                    <h1 class="fs-xl gradient-glass-text z-2 appear">
+                        Real Bias. Real Problem.
+                    </h1>
+                    <p class="fade-in mt-3 fs-3 text-white">
+                        But thankfully, Singapore is taking action.
+                    </p>
+                    <div id="container-stars">
+                        <div id="stars-bg-start"></div>
+                        <div id="stars"></div>
+                        <div id="stars-bg-end"></div>
+                    </div>
+                </section>
+                <section
+                    class="container d-flex flex-column align-items-center py-5 gap-5"
+                >
+                    <div
+                        class="fade-in marquee-container overflow-hidden bg-light shadow-sm"
+                    >
+                        <div id="marquee-bg-start"></div>
+                        <div class="marquee-content d-flex align-items-center">
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-1.png"
+                                    alt="image 1"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-2.jpg"
+                                    alt="image 2"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-3.jpg"
+                                    alt="image 3"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-4.jpg"
+                                    alt="image 4"
+                                />
+                            </div>
+                            <!-- Purposely duplicated set of images for the loop -->
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-1.png"
+                                    alt="image 1"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-2.jpg"
+                                    alt="image 2"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-3.jpg"
+                                    alt="image 3"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-4.jpg"
+                                    alt="image 4"
+                                />
+                            </div>
+                        </div>
+                        <div id="marquee-bg-end"></div>
+                    </div>
+                    <p class="fs-3 w-75 text-center text-white fade-in">
+                        The government is working with AI companies to make sure
+                        their models are safe and fair.
+                    </p>
+                    <p class="fs-3 w-75 text-center text-white fade-in">
+                        They're also looking at how AI can help with things like
+                        healthcare, education, and public services.
+                    </p>
+                    <p class="fs-3 w-75 text-center text-white fade-in">
+                        So while AI is changing the game, Singapore is making
+                        sure it plays fair.
+                    </p>
+                    <div
+                        class="fade-in marquee-container overflow-hidden bg-light shadow-sm"
+                    >
+                        <div id="marquee-bg-start"></div>
+                        <div class="marquee-content d-flex align-items-center">
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-4.jpg"
+                                    alt="image 4"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-3.jpg"
+                                    alt="image 3"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-2.jpg"
+                                    alt="image 2"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-1.png"
+                                    alt="image 1"
+                                />
+                            </div>
+                            <!-- Purposely duplicated set of images for the loop -->
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-4.jpg"
+                                    alt="image 4"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-3.jpg"
+                                    alt="image 3"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-2.jpg"
+                                    alt="image 2"
+                                />
+                            </div>
+                            <div class="marquee-item">
+                                <img
+                                    src="assets/images/marquee-1.png"
+                                    alt="image 1"
+                                />
+                            </div>
+                        </div>
+                        <div id="marquee-bg-end"></div>
+                    </div>
+                </section>
+                <section
+                    id="ai-governance-section"
+                    class="container-fluid w-75 mx-auto"
+                >
+                    <div class="text-center mb-5">
+                        <h2 class="gradient-glass-text fs-1 fade-in">
+                            Singapore's AI Governance Framework
+                        </h2>
+                        <p class="fs-4 text-secondary fade-in mt-3">
+                            How the Lion City is building responsible AI systems
+                        </p>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                        <div class="col">
+                            <div
+                                class="card h-100 liquidglass text-white fade-in"
+                            >
+                                <div class="card-body d-flex flex-column">
+                                    <h5
+                                        class="card-title fs-4 fw-bold mb-3 gradient-glass-text text-center"
+                                    >
+                                        Workplace Fairness Act
+                                    </h5>
+                                    <p class="card-text flex-grow-1 mb-3">
+                                        Comprehensive legislation prohibiting
+                                        discrimination in employment practices,
+                                        with specific provisions addressing
+                                        AI-driven bias in hiring, promotion, and
+                                        workplace decisions.
+                                    </p>
+                                    <a
+                                        href="https://www.tal.sg/tafep/workplace-fairness"
+                                        target="_blank"
+                                        class="btn btn-outline-light btn-sm mt-auto liquidglass-light rounded-2"
+                                    >
+                                        <i class="bi bi-external-link me-2"></i
+                                        >View Source
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-secondary">
+                                        <i class="bi bi-shield-check me-1"></i
+                                        >Legislative Protection
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div
+                                class="card h-100 liquidglass text-white fade-in"
+                            >
+                                <div class="card-body d-flex flex-column">
+                                    <h5
+                                        class="card-title fs-4 fw-bold mb-3 gradient-glass-text text-center"
+                                    >
+                                        TAFEP Guidelines
+                                    </h5>
+                                    <p class="card-text flex-grow-1 mb-3">
+                                        Tripartite Alliance for Fair and
+                                        Progressive Employment Practices
+                                        guidelines ensuring all recruitment
+                                        processes, whether manual or
+                                        AI-assisted, comply with
+                                        anti-discrimination standards.
+                                    </p>
+                                    <a
+                                        href="https://www.withersworldwide.com/en-gb/insight/read/singapore-s-workplace-fairness-act-and-its-impact-on-women-in-workplace"
+                                        target="_blank"
+                                        class="btn btn-outline-light btn-sm mt-auto liquidglass-light rounded-2"
+                                    >
+                                        <i class="bi bi-external-link me-2"></i
+                                        >View Source
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-secondary">
+                                        <i class="bi bi-people me-1"></i
+                                        >Employment Standards
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div
+                                class="card h-100 liquidglass text-white fade-in"
+                            >
+                                <div class="card-body d-flex flex-column">
+                                    <h5
+                                        class="card-title fs-4 fw-bold mb-3 gradient-glass-text text-center"
+                                    >
+                                        AI Verify Platform
+                                    </h5>
+                                    <p class="card-text flex-grow-1 mb-3">
+                                        World's first AI governance testing
+                                        framework and software toolkit, enabling
+                                        organizations to test their AI systems
+                                        for bias, fairness, transparency, and
+                                        accountability through standardized
+                                        benchmarks.
+                                    </p>
+                                    <a
+                                        href="https://www.imda.gov.sg/about-imda/emerging-technologies-and-research/artificial-intelligence"
+                                        target="_blank"
+                                        class="btn btn-outline-light btn-sm mt-auto liquidglass-light rounded-2"
+                                    >
+                                        <i class="bi bi-external-link me-2"></i
+                                        >View Source
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-secondary">
+                                        <i class="bi bi-check2-circle me-1"></i
+                                        >Testing Framework
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div
+                                class="card h-100 liquidglass text-white fade-in"
+                            >
+                                <div class="card-body d-flex flex-column">
+                                    <h5
+                                        class="card-title fs-4 fw-bold mb-3 gradient-glass-text text-center"
+                                    >
+                                        AI Implementation Guide
+                                    </h5>
+                                    <p class="card-text flex-grow-1 mb-3">
+                                        Comprehensive self-assessment guide
+                                        covering 9 critical dimensions of AI
+                                        governance: safety, content provenance,
+                                        data governance, model risk management,
+                                        and ethical deployment practices.
+                                    </p>
+                                    <a
+                                        href="https://www.imda.gov.sg/-/media/imda/files/infocomm-media-landscape/sg-digital/tech-pillars/artificial-intelligence/implementation-and-self-assessment-guide-for-organisations.pdf"
+                                        target="_blank"
+                                        class="btn btn-outline-light btn-sm mt-auto liquidglass-light rounded-2"
+                                    >
+                                        <i
+                                            class="bi bi-file-earmark-pdf me-2"
+                                        ></i
+                                        >Download PDF
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-secondary">
+                                        <i class="bi bi-book me-1"></i
+                                        >Implementation Guide
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div
+                                class="card h-100 liquidglass text-white fade-in"
+                            >
+                                <div class="card-body d-flex flex-column">
+                                    <h5
+                                        class="card-title fs-4 fw-bold mb-3 gradient-glass-text text-center"
+                                    >
+                                        GenAI Sandbox for SMEs
+                                    </h5>
+                                    <p class="card-text flex-grow-1 mb-3">
+                                        Generative AI regulatory sandbox
+                                        providing small and medium enterprises
+                                        with safe testing environments to
+                                        experiment with AI technologies while
+                                        ensuring compliance with emerging
+                                        regulations.
+                                    </p>
+                                    <a
+                                        href="https://services2.imda.gov.sg/ctoaas/highlight/42/generative-artificial-intelligence-sandbox-for-smes"
+                                        target="_blank"
+                                        class="btn btn-outline-light btn-sm mt-auto liquidglass-light rounded-2"
+                                    >
+                                        <i class="bi bi-external-link me-2"></i
+                                        >View Source
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-secondary">
+                                        <i class="bi bi-cpu me-1"></i>Innovation
+                                        Sandbox
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div
+                                class="card h-100 liquidglass text-white fade-in"
+                            >
+                                <div class="card-body d-flex flex-column">
+                                    <h5
+                                        class="card-title fs-4 fw-bold mb-3 gradient-glass-text text-center"
+                                    >
+                                        Responsible AI Strategy
+                                    </h5>
+                                    <p class="card-text flex-grow-1 mb-3">
+                                        National strategy emphasizing
+                                        responsible AI development that builds
+                                        consumer trust while driving business
+                                        growth, focusing on transparency,
+                                        accountability, and sustainable
+                                        innovation practices.
+                                    </p>
+                                    <a
+                                        href="https://www.imda.gov.sg/resources/blog/blog-articles/2024/04/responsible-ai-boosts-consumer-trust-and-business-growth-in-singapore"
+                                        target="_blank"
+                                        class="btn btn-outline-light btn-sm mt-auto liquidglass-light rounded-2"
+                                    >
+                                        <i class="bi bi-external-link me-2"></i
+                                        >View Source
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-secondary">
+                                        <i class="bi bi-compass me-1"></i
+                                        >Strategic Direction
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    class="m-0 p-0 d-flex vh-100 vw-100 justify-content-center align-items-center portal-trigger-section flex-column position-relative"
+                >
+                    <!-- Portal transition element -->
+                    <div
+                        id="portal-overlay"
+                        class="portal-overlay vw-100 vh-100"
+                    >
+                        <div id="portal-circle" class="portal-circle"></div>
+                    </div>
+                    <div class="portal-container">
+                        <div
+                            id="portal-content"
+                            class="portal-content d-flex flex-column"
+                        >
+                            <section class="container text-center">
+                                <div
+                                    class="text-center d-flex flex-column align-items-center justify-content-center h-100"
+                                >
+                                    <h1
+                                        class="gradient-glass-text-white fs-xl mb-4 fade-in"
+                                    >
+                                        Reducing AI Bias Starts with You.
+                                    </h1>
+                                    <button
+                                        id="get-involved"
+                                        class="btn btn-primary px-4 py-2 fs-4 rounded-3 fade-in bg-secondary bg-gradient liquidglass"
+                                        onclick="window.location.href='forum.html'"
+                                    >
+                                        Get Involved<i
+                                            class="bi bi-person-fill-add"
+                                        ></i>
+                                    </button>
+                                </div>
+                            </section>
+                        </div>
+                        <div id="detectme"></div>
+                    </div>
+                </section>
+            </section>
+        </main>
+        <script src="js/script.js"></script>
+        <script src="js/authhandler.js"></script>
+        <!-- Bootstrap JavaScript Bundle -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Scripts for chart -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    </body>
+</html>
