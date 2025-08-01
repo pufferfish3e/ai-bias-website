@@ -1,7 +1,4 @@
 :root {
-    --color-primary: #C94C4C !important;
-    --color-primary-light: #FFC785 !important;
-    --color-primary-dark: #B83333 !important;
     --color-bg: #F8F8F8 !important;
     --color-bg-dark: #1F1F1F !important;
     --font-main: 'PP Mori', sans-serif;
@@ -43,6 +40,7 @@ nav {
 main {
     position: relative;
     overflow-x: hidden;
+    overflow-y: visible;
 }
 
 video {
@@ -179,11 +177,9 @@ div>i {
 
 .icon-text {
     font-size: 3rem !important;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
     background-clip: text;
     color: transparent;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: bold;
 }
 
@@ -199,9 +195,6 @@ div>i {
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    text-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.1),
-        0 0 16px rgba(255, 255, 255, 0.1);
 }
 
 .gradient-glass-text-white {
@@ -216,9 +209,6 @@ div>i {
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    text-shadow:
-        0 2px 6px rgba(255, 255, 255, 0.3),
-        0 0 16px rgba(0, 0, 0, 0.1);
 }
 
 .fs-xl {
@@ -240,7 +230,6 @@ div>i {
     box-shadow:
         0 4px 30px rgba(0, 0, 0, 0.08),
         0 0 0 0.5px rgba(255, 255, 255, 0.2) inset;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
@@ -268,7 +257,6 @@ div>i {
         0 8px 24px rgba(0, 0, 0, 0.05),
         0 0 0 1px rgba(255, 255, 255, 0.3) inset;
 
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
     letter-spacing: 0.4px;
     transition: all 0.3s ease;
 }
@@ -607,17 +595,17 @@ div>i {
 
 .portal-trigger-section {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .portal-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: black;
-    z-index: 5;
+    background: transparent;
+    z-index: 9999;
     pointer-events: none;
     opacity: 1;
     margin: 0;
@@ -632,16 +620,19 @@ div>i {
     width: 0px;
     height: 0px;
     background: url("../assets/images/bg.jpg") no-repeat center center;
+    background-size: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    /* Debug border */
     border-radius: 50%;
-    will-change: transform;
+    will-change: transform, width, height;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 10000;
 }
 
 .portal-container {
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -651,7 +642,7 @@ div>i {
 }
 
 .portal-content {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     min-width: 100vw;
@@ -660,7 +651,7 @@ div>i {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    z-index: 6;
+    z-index: 10001;
     transition: opacity 1s ease-in-out;
     backface-visibility: hidden;
     margin: 0;
@@ -686,13 +677,13 @@ div>i {
 .portal-overlay.transitioning {
     opacity: 1;
     pointer-events: auto;
-    z-index: 5;
+    z-index: 9999;
 }
 
 .portal-overlay.complete {
     opacity: 1;
     pointer-events: auto;
-    z-index: 5;
+    z-index: 9999;
     margin: 0;
     padding: 0;
 }
@@ -704,6 +695,8 @@ div>i {
     width: 100%;
     height: 100vh;
     pointer-events: none;
+    background: rgba(255, 0, 0, 0.1);
+    /* Debug background */
 }
 
 #login-container {
@@ -735,7 +728,6 @@ input::placeholder {
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     background: rgba(255, 255, 255, 0.3) !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.4) !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
     letter-spacing: 0.5px !important;
@@ -753,7 +745,6 @@ input::placeholder {
     box-shadow:
         0 4px 30px rgba(0, 0, 0, 0.08),
         0 0 0 0.5px rgba(255, 255, 255, 0.2) inset !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
     letter-spacing: 0.5px !important;
     color: white !important;
 }
@@ -816,7 +807,8 @@ input::placeholder {
     box-shadow: none;
 }
 
-#usernameError, #passwordError {
+#usernameError,
+#passwordError {
     margin-top: 5px;
     color: red;
     display: none;
@@ -830,7 +822,7 @@ input::placeholder {
     background-image: url("../assets/images/bg2.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     overflow-y: auto;
 }
 

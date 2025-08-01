@@ -1,58 +1,79 @@
-const data = [{
-    title: "Facial Recognition Wrongly Arrests Innocent Man",
-    content: "A Detroit man was arrested after a facial recognition system misidentified him — the third known case of its kind. Experts point out that these systems have higher error rates for Black individuals, leading to devastating real-world consequences. Urgent policy reforms and transparency in law enforcement AI tools are being demanded.",
-    category1: "AI Bias News",
-    category2: "Example",
-    rating: 9,
-    bg: "bg-danger",
-    author: "Aisha",
-    difficulty: "Intermediate",
-}, {
-    title: "GPT-4 Reinforces Gender Stereotypes in Job Ads",
-    content: "A test using GPT-4 to write job ads revealed subtle gender bias: prompts with male names led to descriptions like “ambitious leader,” while female names were linked to “supportive team player.” These patterns are learned from biased training data, and while subtle, they impact hiring at scale.",
-    category1: "AI Bias News",
-    category2: "Example",
-    rating: 8,
-    bg: "bg-danger",
-    author: "Ravi",
-    difficulty: "Expert",
-}, {
-    title: "AI Chatbots Exhibit Racial Bias in Responses",
-    content: "A study found that AI chatbots, including ChatGPT, exhibited racial bias in their responses. When asked about sensitive topics, the bots provided different answers based on the perceived race of the user. This highlights the need for more equitable AI training practices.",
-    category1: "AI Bias News",
-    category2: "Example",
-    rating: 7,
-    bg: "bg-warning",
-    author: "Jordan",
-    difficulty: "Intermediate",
-}, {
-    title: "How to Check if your AI prompt encourages bias",
-    content: "To ensure your AI prompts do not encourage bias, consider the following steps: 1) Use neutral language that does not imply stereotypes; 2) Avoid using demographic identifiers unless necessary; 3) Test prompts with diverse datasets to identify potential biases; 4) Regularly review and update prompts based on feedback and new findings.",
-    category1: "General",
-    category2: "Tip",
-    rating: 3,
-    bg: "bg-success",
-    author: "Alex",
-    difficulty: "Beginner",
-}, {
-    title: "Solving AI Bias Starts with Data Collection",
-    content: "Before jumping into bias mitigation methods, make sure your dataset actually reflects the people it affects. If your AI serves a global audience but was trained on U.S.-centric data, you’re already biased. Collecting ethical, representative data is the first real solution to systemic AI unfairness.",
-    category1: "Technology",
-    category2: "Solution",
-    rating: 4,
-    bg: "bg-success",
-    author: "Arjun",
-    difficulty: "Expert",
-}]
+const data = [
+    {
+        title: "Facial Recognition Wrongly Arrests Innocent Man",
+        content:
+            "A Detroit man was arrested after a facial recognition system misidentified him — the third known case of its kind. Experts point out that these systems have higher error rates for Black individuals, leading to devastating real-world consequences. Urgent policy reforms and transparency in law enforcement AI tools are being demanded.",
+        category1: "AI Bias News",
+        category2: "Example",
+        rating: 9,
+        bg: "bg-danger",
+        author: "Aisha",
+        difficulty: "Intermediate",
+    },
+    {
+        title: "GPT-4 Reinforces Gender Stereotypes in Job Ads",
+        content:
+            "A test using GPT-4 to write job ads revealed subtle gender bias: prompts with male names led to descriptions like “ambitious leader,” while female names were linked to “supportive team player.” These patterns are learned from biased training data, and while subtle, they impact hiring at scale.",
+        category1: "AI Bias News",
+        category2: "Example",
+        rating: 8,
+        bg: "bg-danger",
+        author: "Ravi",
+        difficulty: "Expert",
+    },
+    {
+        title: "AI Chatbots Exhibit Racial Bias in Responses",
+        content:
+            "A study found that AI chatbots, including ChatGPT, exhibited racial bias in their responses. When asked about sensitive topics, the bots provided different answers based on the perceived race of the user. This highlights the need for more equitable AI training practices.",
+        category1: "AI Bias News",
+        category2: "Example",
+        rating: 7,
+        bg: "bg-warning",
+        author: "Jordan",
+        difficulty: "Intermediate",
+    },
+    {
+        title: "How to Check if your AI prompt encourages bias",
+        content:
+            "To ensure your AI prompts do not encourage bias, consider the following steps: 1) Use neutral language that does not imply stereotypes; 2) Avoid using demographic identifiers unless necessary; 3) Test prompts with diverse datasets to identify potential biases; 4) Regularly review and update prompts based on feedback and new findings.",
+        category1: "General",
+        category2: "Tip",
+        rating: 3,
+        bg: "bg-success",
+        author: "Alex",
+        difficulty: "Beginner",
+    },
+    {
+        title: "Solving AI Bias Starts with Data Collection",
+        content:
+            "Before jumping into bias mitigation methods, make sure your dataset actually reflects the people it affects. If your AI serves a global audience but was trained on U.S.-centric data, you’re already biased. Collecting ethical, representative data is the first real solution to systemic AI unfairness.",
+        category1: "Technology",
+        category2: "Solution",
+        rating: 4,
+        bg: "bg-success",
+        author: "Arjun",
+        difficulty: "Expert",
+    },
+];
 
 function renderPosts() {
     for (let i = 0; i < data.length; i++) {
         const currentPostTitle = document.getElementById(`post-title-${i + 1}`);
-        const currentPostUrgency = document.getElementById(`post-urgency-${i + 1}`);
-        const currentPostContent = document.getElementById(`post-content-${i + 1}`);
-        const currentPostCategory1 = document.getElementById(`post-category-${i + 1}-1`);
-        const currentPostCategory2 = document.getElementById(`post-category-${i + 1}-2`);
-        const currentPostAuthor = document.getElementById(`post-author-${i + 1}`);
+        const currentPostUrgency = document.getElementById(
+            `post-urgency-${i + 1}`
+        );
+        const currentPostContent = document.getElementById(
+            `post-content-${i + 1}`
+        );
+        const currentPostCategory1 = document.getElementById(
+            `post-category-${i + 1}-1`
+        );
+        const currentPostCategory2 = document.getElementById(
+            `post-category-${i + 1}-2`
+        );
+        const currentPostAuthor = document.getElementById(
+            `post-author-${i + 1}`
+        );
         if (currentPostTitle) {
             currentPostTitle.textContent = data[i].title;
         }
@@ -454,43 +475,56 @@ function portalTransition() {
     }
 
     const sectionRect = portalTriggerSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
     const scrollY = window.scrollY;
 
-    // Simple check: if detectme is in view
-    if (sectionRect.top < window.innerHeight && sectionRect.bottom > 0) {
+    // Check if we're at the bottom section where the portal should activate
+    // The detectme element should be coming into view from the bottom
+    if (sectionRect.top <= windowHeight && sectionRect.bottom > 0) {
+        // Show the overlay
         portalOverlay.classList.remove("hidden");
         portalOverlay.classList.add("transitioning");
 
-        // Simple progress based on how much of detectme is visible
+        // Calculate progress based on how much of the detectme element is visible
+        // When sectionRect.top equals windowHeight, progress = 0
+        // When sectionRect.top equals 0, progress = 1
         const progress = Math.max(
             0,
-            Math.min(
-                1,
-                (window.innerHeight - sectionRect.top) / window.innerHeight
-            )
+            Math.min(1, (windowHeight - sectionRect.top) / windowHeight)
         );
+
+        // Calculate the radius needed to cover the entire viewport
         const maxRadius =
             Math.sqrt(
                 Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)
             ) / 2;
-        const currentRadius = 5 + progress * maxRadius;
 
+        // Start with a small circle and grow based on progress
+        const minRadius = 50; // Start with a visible circle
+        const currentRadius = minRadius + progress * (maxRadius - minRadius);
+
+        // Apply the size to the circle
         portalCircle.style.width = `${currentRadius * 2}px`;
         portalCircle.style.height = `${currentRadius * 2}px`;
 
-        if (currentRadius >= maxRadius * 0.9) {
+        // When the circle is large enough, show the content
+        if (progress >= 0.8) {
             portalOverlay.classList.add("complete");
             portalOverlay.classList.remove("transitioning");
             portalContent.classList.add("show");
         } else {
+            portalOverlay.classList.remove("complete");
             portalContent.classList.remove("show");
         }
     } else {
+        // Hide everything when not in the trigger zone
         portalOverlay.classList.add("hidden");
         portalOverlay.classList.remove("transitioning", "complete");
         portalContent.classList.remove("show");
-        portalCircle.style.width = "10px";
-        portalCircle.style.height = "10px";
+
+        // Reset circle size
+        portalCircle.style.width = "0px";
+        portalCircle.style.height = "0px";
     }
 }
 
