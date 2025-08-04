@@ -109,5 +109,7 @@ https://stackoverflow.com/questions/18042133/check-if-input-is-number-or-letter-
 declare:
 number animation (javascript)
 scroll animation (javascript)
+portal overlay animation (javascript)
+file validation from image (javascript)
 
 change example forum from html to js

@@ -1,3 +1,7 @@
+const loginForm = document.getElementById("login-form");
+const signUpForm = document.getElementById("signup-form");
+let isUserLoggedIn = localStorage.getItem("isUserLoggedIn") === "true";
+let loggedInUser = localStorage.getItem("loggedInUser");
 const data = [
     {
         title: "Facial Recognition Wrongly Arrests Innocent Man",
@@ -530,7 +534,6 @@ function portalTransition() {
 
 // Forum form functionality
 function initForumForm() {
-    // Range slider for urgency level
     const urgencySlider = document.getElementById("urgency-level");
     const urgencyValue = document.getElementById("urgency-value");
     if (urgencySlider) {
@@ -538,10 +541,181 @@ function initForumForm() {
             urgencyValue.textContent = this.value;
         });
     }
+    const imageInput = document.getElementById("post-image");
+    const imagePreview = document.getElementById("image-preview");
+    const imagePreviewContainer = document.getElementById(
+        "image-preview-container"
+    );
+    const removeImageBtn = document.getElementById("remove-image");
+    if (imageInput) {
+        imageInput.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    imageInput.value = "";
+                    return;
+                }
+                if (!file.type.startsWith("image/")) {
+                    imageInput.value = "";
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreviewContainer.classList.add("show");
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+    if (removeImageBtn) {
+        removeImageBtn.addEventListener("click", function () {
+            imageInput.value = "";
+            imagePreview.src = "";
+            imagePreviewContainer.classList.remove("show");
+        });
+    }
+}
+
+// Authentication functions
+function handleLoginLogout(event) {
+    event.preventDefault();
+    const button = document.getElementById("nav-login");
+    if (isUserLoggedIn) {
+        unLogUser();
+        button.textContent = "Login";
+        button.href = "#";
+        console.log("User logged out");
+    } else {
+        window.location.href = "login.html";
+    }
+}
+
+function updateButtonText() {
+    const button = document.getElementById("nav-login");
+    if (isUserLoggedIn) {
+        button.textContent = "Logout";
+    } else {
+        button.textContent = "Login";
+    }
+}
+
+function initializeAuthHandler() {
+    updateButtonText();
+    const loginButton = document.getElementById("nav-login");
+    if (loginButton) {
+        loginButton.addEventListener("click", handleLoginLogout);
+    }
+}
+
+function submitLoginForm(event) {
+    event.preventDefault();
+    let users = [];
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"));
+    } else {
+        localStorage.setItem("users", JSON.stringify(users));
+    }
+    const userInputName = document.getElementById("loginUsername").value;
+    const userInputPassword = document.getElementById("loginPassword").value;
+    console.log(`Username: ${userInputName}, Password: ${userInputPassword}`);
+    for (let i = 0; i < users.length; i++) {
+        if (
+            users[i].username === userInputName &&
+            users[i].password === userInputPassword
+        ) {
+            // Successful Login
+            isUserLoggedIn = true;
+            localStorage.setItem("isUserLoggedIn", "true");
+            const successModal = new bootstrap.Modal(
+                document.getElementById("successModal")
+            );
+            successModal.show();
+            localStorage.setItem("loggedInUser", userInputName);
+            document.getElementById("loggedInUserName").textContent =
+                userInputName;
+            console.log(`Logged in as: ${userInputName}`);
+            updateButtonText();
+            return;
+        }
+    }
+    console.log(
+        "Login Failed. User has not Registered or Incorrect Credentials"
+    );
+    alert(
+        "You have not registered for an account or your credentials are incorrect. Please Sign Up or try again."
+    );
+}
+
+function submitSignUpForm(event) {
+    event.preventDefault();
+
+    // Validate form before processing
+    if (!validateForm()) {
+        console.log("Form validation failed");
+        return;
+    }
+
+    let users = [];
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"));
+        console.log(users);
+    } else {
+        localStorage.setItem("users", JSON.stringify(users));
+    }
+    const userInputName = document.getElementById("signUpUsername").value;
+    const userInputPassword = document.getElementById("signUpPassword").value;
+    console.log(`Username: ${userInputName}, Password: ${userInputPassword}`);
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].username == userInputName) {
+            alert("Username already exists. Please Login.");
+            return;
+        }
+    }
+    let user = {};
+    user.username = userInputName;
+    user.password = userInputPassword;
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("loggedInUser", userInputName);
+    console.log(`Sign Up Successful`);
+    // Show success modal
+    const successModal = new bootstrap.Modal(
+        document.getElementById("successModal")
+    );
+    successModal.show();
+}
+
+// For debugging
+function setSampleCredentials() {
+    localStorage.setItem(
+        "users",
+        JSON.stringify([{ username: "John", password: "1234" }])
+    );
+    console.log("Sample username and password set");
+}
+
+function unLogUser() {
+    isUserLoggedIn = false;
+    localStorage.setItem("isUserLoggedIn", "false");
+    updateButtonText(); // Update button text immediately
+    console.log("User logged out");
 }
 
 // event listeners for events
 renderPosts();
+
+// Form event listeners
+if (loginForm) {
+    loginForm.addEventListener("submit", submitLoginForm);
+}
+
+if (signUpForm) {
+    signUpForm.addEventListener("submit", submitSignUpForm);
+}
+
+// Other event listeners
+document.addEventListener("DOMContentLoaded", initializeAuthHandler);
 document.addEventListener("keydown", detectKeyboardShortcut);
 window.addEventListener("DOMContentLoaded", setupSidebarToggle);
 document.addEventListener("keyup", validateInputs);
