@@ -101,11 +101,19 @@
             </nav>
         </header>
         <main>
+            <!-- Toggle button for create post form -->
+            <button
+                id="createPostToggle"
+                class="btn btn-primary position-fixed bottom-0 start-0 m-3 z-3 d-none d-md-block"
+            >
+                <i class="bi bi-plus-circle me-2"></i>Create Post
+            </button>
+
             <section
                 id="forum"
-                class="d-flex flex-column flex-lg-row align-items-start"
+                class="d-flex flex-column flex-lg-row align-items-start overflow-x-hidden"
             >
-                <div class="w-100 w-lg-75 mx-lg-4 order-1">
+                <div class="w-100 mx-lg-4 order-1" id="posts-main-container">
                     <div
                         id="forum-posts"
                         class="w-100 rounded-3 mx-1 mx-lg-3 liquidglass bg-transparent"
@@ -117,7 +125,8 @@
                             <div
                                 class="post-item mb-3 p-3 rounded liquidglass-light"
                             >
-                                <div class="d-flex flex-row">
+                                <!-- Title and urgency row -->
+                                <div class="d-flex flex-row mb-3">
                                     <h3
                                         id="post-title-1"
                                         class="post-title fs-2 me-2 fw-bolder gradient-glass-text fw-bolder gradient-glass-text"
@@ -131,17 +140,37 @@
                                         0/10
                                     </h2>
                                 </div>
-                                <p
-                                    id="post-content-1"
-                                    class="post-content fs-4"
+
+                                <!-- Content and image layout - responsive -->
+                                <div
+                                    class="d-flex flex-column flex-md-row gap-3 mb-3"
                                 >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Temporibus ratione aut
-                                    quos cumque veniam labore quam dolores eius,
-                                    cupiditate tenetur adipisci perspiciatis
-                                    dolorum amet commodi officiis at,
-                                    accusantium architecto iusto!
-                                </p>
+                                    <div
+                                        class="post-image-container flex-shrink-0"
+                                    >
+                                        <img
+                                            id="post-image-1"
+                                            class="post-image img-fluid rounded post-img post-img"
+                                            src=""
+                                            alt="Post image"
+                                        />
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p
+                                            id="post-content-1"
+                                            class="post-content fs-4 pe-5"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit.
+                                            Temporibus ratione aut quos cumque
+                                            veniam labore quam dolores eius,
+                                            cupiditate tenetur adipisci
+                                            perspiciatis dolorum amet commodi
+                                            officiis at, accusantium architecto
+                                            iusto!
+                                        </p>
+                                    </div>
+                                </div>
                                 <div
                                     class="post-meta d-flex justify-content-between"
                                 >
@@ -174,7 +203,8 @@
                             <div
                                 class="post-item mb-3 p-3 rounded liquidglass-light"
                             >
-                                <div class="d-flex flex-row">
+                                <!-- Title and urgency row -->
+                                <div class="d-flex flex-row mb-3">
                                     <h3
                                         id="post-title-2"
                                         class="post-title fs-2 me-2 fw-bolder gradient-glass-text fw-bolder gradient-glass-text"
@@ -188,17 +218,37 @@
                                         0/10
                                     </h2>
                                 </div>
-                                <p
-                                    id="post-content-2"
-                                    class="post-content fs-4"
+
+                                <!-- Content and image layout - responsive -->
+                                <div
+                                    class="d-flex flex-column flex-md-row gap-3 mb-3"
                                 >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Temporibus ratione aut
-                                    quos cumque veniam labore quam dolores eius,
-                                    cupiditate tenetur adipisci perspiciatis
-                                    dolorum amet commodi officiis at,
-                                    accusantium architecto iusto!
-                                </p>
+                                    <div
+                                        class="post-image-container flex-shrink-0"
+                                    >
+                                        <img
+                                            id="post-image-2"
+                                            class="post-image img-fluid rounded post-img"
+                                            src=""
+                                            alt="Post image"
+                                        />
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p
+                                            id="post-content-2"
+                                            class="post-content fs-4 pe-5"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit.
+                                            Temporibus ratione aut quos cumque
+                                            veniam labore quam dolores eius,
+                                            cupiditate tenetur adipisci
+                                            perspiciatis dolorum amet commodi
+                                            officiis at, accusantium architecto
+                                            iusto!
+                                        </p>
+                                    </div>
+                                </div>
                                 <div
                                     class="post-meta d-flex justify-content-between"
                                 >
@@ -231,7 +281,8 @@
                             <div
                                 class="post-item mb-3 p-3 rounded liquidglass-light"
                             >
-                                <div class="d-flex flex-row">
+                                <!-- Title and urgency row -->
+                                <div class="d-flex flex-row mb-3">
                                     <h3
                                         id="post-title-3"
                                         class="post-title fs-2 me-2 fw-bolder gradient-glass-text fw-bolder gradient-glass-text"
@@ -240,22 +291,42 @@
                                     </h3>
                                     <h2
                                         id="post-urgency-3"
-                                        class="d-flex justify-content-center align-items-center fs-5 rounded-1 px-2 h-100 mt-1 py-1 px-2"
+                                        class="d-flex justify-content-center align-items-center fs-5 rounded-1 px-2 h-100 mt-1 py-1 px-2 h-100 mt-1 py-1"
                                     >
                                         0/10
                                     </h2>
                                 </div>
-                                <p
-                                    id="post-content-3"
-                                    class="post-content fs-4"
+
+                                <!-- Content and image layout - responsive -->
+                                <div
+                                    class="d-flex flex-column flex-md-row gap-3 mb-3"
                                 >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Temporibus ratione aut
-                                    quos cumque veniam labore quam dolores eius,
-                                    cupiditate tenetur adipisci perspiciatis
-                                    dolorum amet commodi officiis at,
-                                    accusantium architecto iusto!
-                                </p>
+                                    <div
+                                        class="post-image-container flex-shrink-0"
+                                    >
+                                        <img
+                                            id="post-image-3"
+                                            class="post-image img-fluid rounded post-img post-img"
+                                            src=""
+                                            alt="Post image"
+                                        />
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p
+                                            id="post-content-3"
+                                            class="post-content fs-4 pe-5"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit.
+                                            Temporibus ratione aut quos cumque
+                                            veniam labore quam dolores eius,
+                                            cupiditate tenetur adipisci
+                                            perspiciatis dolorum amet commodi
+                                            officiis at, accusantium architecto
+                                            iusto!
+                                        </p>
+                                    </div>
+                                </div>
                                 <div
                                     class="post-meta d-flex justify-content-between"
                                 >
@@ -288,7 +359,8 @@
                             <div
                                 class="post-item mb-3 p-3 rounded liquidglass-light"
                             >
-                                <div class="d-flex flex-row">
+                                <!-- Title and urgency row -->
+                                <div class="d-flex flex-row mb-3">
                                     <h3
                                         id="post-title-4"
                                         class="post-title fs-2 me-2 fw-bolder gradient-glass-text fw-bolder gradient-glass-text"
@@ -297,22 +369,42 @@
                                     </h3>
                                     <h2
                                         id="post-urgency-4"
-                                        class="d-flex justify-content-center align-items-center fs-5 rounded-1 px-2 h-100 mt-1 py-1 px-2"
+                                        class="d-flex justify-content-center align-items-center fs-5 rounded-1 px-2 h-100 mt-1 py-1 px-2 h-100 mt-1 py-1"
                                     >
                                         0/10
                                     </h2>
                                 </div>
-                                <p
-                                    id="post-content-4"
-                                    class="post-content fs-4"
+
+                                <!-- Content and image layout - responsive -->
+                                <div
+                                    class="d-flex flex-column flex-md-row gap-3 mb-3"
                                 >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Temporibus ratione aut
-                                    quos cumque veniam labore quam dolores eius,
-                                    cupiditate tenetur adipisci perspiciatis
-                                    dolorum amet commodi officiis at,
-                                    accusantium architecto iusto!
-                                </p>
+                                    <div
+                                        class="post-image-container flex-shrink-0"
+                                    >
+                                        <img
+                                            id="post-image-4"
+                                            class="post-image img-fluid rounded post-img post-img"
+                                            src=""
+                                            alt="Post image"
+                                        />
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p
+                                            id="post-content-4"
+                                            class="post-content fs-4 pe-5"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit.
+                                            Temporibus ratione aut quos cumque
+                                            veniam labore quam dolores eius,
+                                            cupiditate tenetur adipisci
+                                            perspiciatis dolorum amet commodi
+                                            officiis at, accusantium architecto
+                                            iusto!
+                                        </p>
+                                    </div>
+                                </div>
                                 <div
                                     class="post-meta d-flex justify-content-between"
                                 >
@@ -345,7 +437,8 @@
                             <div
                                 class="post-item mb-3 p-3 rounded liquidglass-light"
                             >
-                                <div class="d-flex flex-row">
+                                <!-- Title and urgency row -->
+                                <div class="d-flex flex-row mb-3">
                                     <h3
                                         id="post-title-5"
                                         class="post-title fs-2 me-2 fw-bolder gradient-glass-text fw-bolder gradient-glass-text"
@@ -354,22 +447,42 @@
                                     </h3>
                                     <h2
                                         id="post-urgency-5"
-                                        class="d-flex justify-content-center align-items-center fs-5 rounded-1 px-2 h-100 mt-1 py-1 px-2"
+                                        class="d-flex justify-content-center align-items-center fs-5 rounded-1 px-2 h-100 mt-1 py-1 px-2 h-100 mt-1 py-1"
                                     >
                                         0/10
                                     </h2>
                                 </div>
-                                <p
-                                    id="post-content-5"
-                                    class="post-content fs-4"
+
+                                <!-- Content and image layout - responsive -->
+                                <div
+                                    class="d-flex flex-column flex-md-row gap-3 mb-3"
                                 >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Temporibus ratione aut
-                                    quos cumque veniam labore quam dolores eius,
-                                    cupiditate tenetur adipisci perspiciatis
-                                    dolorum amet commodi officiis at,
-                                    accusantium architecto iusto!
-                                </p>
+                                    <div
+                                        class="post-image-container flex-shrink-0"
+                                    >
+                                        <img
+                                            id="post-image-5"
+                                            class="post-image img-fluid rounded post-img post-img"
+                                            src=""
+                                            alt="Post image"
+                                        />
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p
+                                            id="post-content-5"
+                                            class="post-content fs-4 pe-5"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit.
+                                            Temporibus ratione aut quos cumque
+                                            veniam labore quam dolores eius,
+                                            cupiditate tenetur adipisci
+                                            perspiciatis dolorum amet commodi
+                                            officiis at, accusantium architecto
+                                            iusto!
+                                        </p>
+                                    </div>
+                                </div>
                                 <div
                                     class="post-meta d-flex justify-content-between"
                                 >
@@ -402,7 +515,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-100 w-lg-25 order-2 order-lg-1">
+
+                <!-- Create Post Sidebar -->
+                <div
+                    class="w-100 w-lg-25 order-2 order-lg-1 d-md-none"
+                    id="createPostSidebar"
+                >
                     <div
                         id="post-form-container"
                         class="py-3 rounded m-3 m-lg-4 liquidglass bg-transparent d-flex justify-content-center align-items-center flex-column"
@@ -449,7 +567,7 @@
                                 >
                                 <input
                                     type="file"
-                                    class="form-control liquidglass rounded-1 fs-6 fs-lg-5"
+                                    class="form-control liquidglass rounded-1 fs-6 fs-lg-5 text-white"
                                     id="post-image"
                                     accept="image/*"
                                 />
@@ -463,59 +581,14 @@
                                         class="img-fluid rounded-2 liquidglass-light p-2"
                                         alt="Image preview"
                                     />
-                                    <div class="">
-                                        <button
-                                            type="button"
-                                            id="remove-image"
-                                            class="btn btn-sm btn-outline-danger fs-6"
-                                        >
-                                            <i class="bi bi-trash"></i> Remove
-                                            Image
-                                        </button>
-                                    </div>
+                                    <button
+                                        type="button"
+                                        id="remove-image"
+                                        class="btn btn-sm btn-outline-danger fs-6 w-100"
+                                    >
+                                        <i class="bi bi-trash"></i> Remove Image
+                                    </button>
                                 </div>
-                            </div>
-
-                            <!-- Topic Category (Select Dropdown) -->
-                            <div class="mb-2 mb-lg-3">
-                                <label
-                                    for="post-category"
-                                    class="form-label text-white fs-6 fs-lg-5"
-                                    >Topic Category</label
-                                >
-                                <select
-                                    class="form-select liquidglass rounded-1 text-white fs-6 fs-lg-5"
-                                    id="post-category"
-                                    required
-                                >
-                                    <option value="" class="text-white bg-dark">
-                                        Choose a topic...
-                                    </option>
-                                    <option
-                                        value="tips"
-                                        class="text-white bg-dark"
-                                    >
-                                        AI Bias News
-                                    </option>
-                                    <option
-                                        value="example"
-                                        class="text-white bg-dark"
-                                    >
-                                        Helpful Inventions
-                                    </option>
-                                    <option
-                                        value="solutions"
-                                        class="text-white bg-dark"
-                                    >
-                                        Technology
-                                    </option>
-                                    <option
-                                        value="discussion"
-                                        class="text-white bg-dark"
-                                    >
-                                        General
-                                    </option>
-                                </select>
                             </div>
 
                             <!-- Experience Level (Radio Buttons) -->
@@ -607,12 +680,50 @@
                                     <input
                                         class="form-check-input liquidglass"
                                         type="checkbox"
-                                        value="Tip"
-                                        id="tag-research"
+                                        id="tag-ai-news"
                                     />
                                     <label
                                         class="form-check-label text-secondary fs-6"
-                                        for="tag-research"
+                                        for="tag-ai-news"
+                                    >
+                                        AI Bias News
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-general"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-general"
+                                    >
+                                        General
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-technology"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-technology"
+                                    >
+                                        Technology
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-tip"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-tip"
                                     >
                                         Tip
                                     </label>
@@ -621,12 +732,11 @@
                                     <input
                                         class="form-check-input liquidglass"
                                         type="checkbox"
-                                        value="Example"
-                                        id="tag-personal"
+                                        id="tag-example"
                                     />
                                     <label
                                         class="form-check-label text-secondary fs-6"
-                                        for="tag-personal"
+                                        for="tag-example"
                                     >
                                         Example
                                     </label>
@@ -635,12 +745,11 @@
                                     <input
                                         class="form-check-input liquidglass"
                                         type="checkbox"
-                                        value="Solution"
-                                        id="tag-case"
+                                        id="tag-solution"
                                     />
                                     <label
                                         class="form-check-label text-secondary fs-6"
-                                        for="tag-case"
+                                        for="tag-solution"
                                     >
                                         Solution
                                     </label>
@@ -662,6 +771,278 @@
                             <button
                                 type="submit"
                                 class="btn btn-primary w-100 bg-gradient fs-6 fs-lg-5"
+                            >
+                                Post
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Desktop/Tablet Create Post Sidebar (Hidden by default) -->
+                <div
+                    id="createPostSidebarDesktop"
+                    class="create-post-sidebar d-none d-md-block position-fixed top-0 end-0 h-100 bg-transparent shadow-lg"
+                >
+                    <div class="p-4 h-100 overflow-auto">
+                        <div
+                            class="d-flex justify-content-between align-items-center mb-3"
+                        >
+                            <h2 class="text-white fs-3">Create a Post</h2>
+                            <button id="closeCreatePost" class="btn btn-md">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+
+                        <form id="post-form-desktop">
+                            <div class="mb-3">
+                                <label
+                                    for="post-title-desktop"
+                                    class="form-label text-white fs-6"
+                                    >Title</label
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control liquidglass rounded-1 fs-6"
+                                    id="post-title-desktop"
+                                    maxlength="50"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label
+                                    for="post-content-desktop"
+                                    class="form-label text-white fs-6"
+                                    >Content</label
+                                >
+                                <textarea
+                                    class="form-control liquidglass rounded-1 fs-6"
+                                    id="post-content-desktop"
+                                    rows="4"
+                                    maxlength="500"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <!-- Image Upload -->
+                            <div class="mb-3">
+                                <label
+                                    for="post-image-desktop"
+                                    class="form-label text-white fs-6"
+                                    >Upload Image (optional)</label
+                                >
+                                <input
+                                    type="file"
+                                    class="form-control liquidglass rounded-1 fs-6 text-white"
+                                    id="post-image-desktop"
+                                    accept="image/*"
+                                />
+                                <div class="form-text text-secondary small">
+                                    Supported formats: JPG, PNG, GIF (Max 5MB)
+                                </div>
+                                <!-- Image Preview -->
+                                <div
+                                    id="image-preview-container-desktop"
+                                    class="mt-2"
+                                >
+                                    <img
+                                        id="image-preview-desktop"
+                                        class="img-fluid rounded-2 liquidglass-light p-2"
+                                        alt="Image preview"
+                                    />
+                                    <button
+                                        type="button"
+                                        id="remove-image-desktop"
+                                        class="btn btn-sm btn-outline-danger fs-6 w-100"
+                                    >
+                                        <i class="bi bi-trash"></i> Remove Image
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Experience Level -->
+                            <div class="mb-3">
+                                <label class="form-label text-white fs-6"
+                                    >Your Experience Level</label
+                                >
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="radio"
+                                        name="experience-desktop"
+                                        value="beginner"
+                                        id="exp-beginner-desktop"
+                                        required
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="exp-beginner-desktop"
+                                    >
+                                        Beginner (New to AI)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="radio"
+                                        name="experience-desktop"
+                                        value="intermediate"
+                                        id="exp-intermediate-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="exp-intermediate-desktop"
+                                    >
+                                        Intermediate (Some experience)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="radio"
+                                        name="experience-desktop"
+                                        value="expert"
+                                        id="exp-expert-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="exp-expert-desktop"
+                                    >
+                                        Expert (Professional/Academic)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Urgency Level -->
+                            <div class="mb-3">
+                                <label
+                                    for="urgency-level-desktop"
+                                    class="form-label text-white fs-6"
+                                >
+                                    How urgent is this issue?
+                                    <span
+                                        id="urgency-value-desktop"
+                                        class="fs-6"
+                                        >5</span
+                                    >/10
+                                </label>
+                                <input
+                                    type="range"
+                                    class="form-range"
+                                    min="1"
+                                    max="10"
+                                    value="5"
+                                    id="urgency-level-desktop"
+                                />
+                                <div
+                                    class="d-flex justify-content-between text-secondary small"
+                                >
+                                    <span>Low Priority</span>
+                                    <span>High Priority</span>
+                                </div>
+                            </div>
+
+                            <!-- Tags -->
+                            <div class="mb-3">
+                                <label class="form-label text-white fs-6"
+                                    >Tags</label
+                                >
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-ai-news-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-ai-news-desktop"
+                                    >
+                                        AI Bias News
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-general-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-general-desktop"
+                                    >
+                                        General
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-technology-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-technology-desktop"
+                                    >
+                                        Technology
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-tip-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-tip-desktop"
+                                    >
+                                        Tip
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-example-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-example-desktop"
+                                    >
+                                        Example
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input liquidglass"
+                                        type="checkbox"
+                                        id="tag-solution-desktop"
+                                    />
+                                    <label
+                                        class="form-check-label text-secondary fs-6"
+                                        for="tag-solution-desktop"
+                                    >
+                                        Solution
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Contact Email -->
+                            <div class="mb-3">
+                                <label
+                                    for="contact-email-desktop"
+                                    class="form-label text-white fs-6"
+                                    >Contact Email (optional)</label
+                                >
+                                <input
+                                    type="email"
+                                    class="form-control liquidglass rounded-1 fs-6"
+                                    id="contact-email-desktop"
+                                    placeholder="your.email@example.com"
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary w-100 bg-gradient fs-6"
                             >
                                 Post
                             </button>

@@ -6,57 +6,70 @@ const data = [
     {
         title: "Facial Recognition Wrongly Arrests Innocent Man",
         content:
-            "A Detroit man was arrested after a facial recognition system misidentified him — the third known case of its kind. Experts point out that these systems have higher error rates for Black individuals, leading to devastating real-world consequences. Urgent policy reforms and transparency in law enforcement AI tools are being demanded.",
+            "A Detroit man was arrested after a facial recognition system misidentified him — the third known case of its kind.<br>Experts point out that these systems have higher error rates for Black individuals, leading to devastating real-world consequences.<br>Urgent policy reforms and transparency in law enforcement AI tools are being demanded.<br>This incident has sparked renewed debate about the ethical use of AI in policing, with civil rights groups calling for stricter oversight and accountability.",
         category1: "AI Bias News",
         category2: "Example",
         rating: 9,
         bg: "bg-danger",
         author: "Aisha",
         difficulty: "Intermediate",
+        image: "assets/images/post1.jpg",
     },
     {
         title: "GPT-4 Reinforces Gender Stereotypes in Job Ads",
         content:
-            "A test using GPT-4 to write job ads revealed subtle gender bias: prompts with male names led to descriptions like “ambitious leader,” while female names were linked to “supportive team player.” These patterns are learned from biased training data, and while subtle, they impact hiring at scale.",
+            "A test using GPT-4 to write job ads revealed subtle gender bias: prompts with male names led to descriptions like 'ambitious leader,' while female names were linked to 'supportive team player.'<br>These patterns are learned from biased training data, and while subtle, they impact hiring at scale.<br>Researchers warn that unchecked, such biases can perpetuate workplace inequality and limit opportunities for underrepresented groups.<br>Companies are now being encouraged to audit their AI tools and implement bias mitigation strategies to ensure fairer recruitment processes.",
         category1: "AI Bias News",
         category2: "Example",
         rating: 8,
         bg: "bg-danger",
         author: "Ravi",
         difficulty: "Expert",
+        image: "assets/images/post2.jpg",
     },
     {
         title: "AI Chatbots Exhibit Racial Bias in Responses",
         content:
-            "A study found that AI chatbots, including ChatGPT, exhibited racial bias in their responses. When asked about sensitive topics, the bots provided different answers based on the perceived race of the user. This highlights the need for more equitable AI training practices.",
+            "A study found that AI chatbots, including ChatGPT, exhibited racial bias in their responses.<br>When asked about sensitive topics, the bots provided different answers based on the perceived race of the user.<br>This highlights the need for more equitable AI training practices.<br>Experts recommend ongoing monitoring and diverse data collection to reduce these disparities.<br>Developers are also urged to involve ethicists and community representatives in the design process to better identify and address potential biases.",
         category1: "AI Bias News",
         category2: "Example",
         rating: 7,
         bg: "bg-warning",
-        author: "Jordan",
+        author: "Jay",
         difficulty: "Intermediate",
+        image: "assets/images/post3.jpg",
     },
     {
         title: "How to Check if your AI prompt encourages bias",
         content:
-            "To ensure your AI prompts do not encourage bias, consider the following steps: 1) Use neutral language that does not imply stereotypes; 2) Avoid using demographic identifiers unless necessary; 3) Test prompts with diverse datasets to identify potential biases; 4) Regularly review and update prompts based on feedback and new findings.",
+            `
+            To ensure your AI prompts do not encourage bias, consider the following steps:<br>
+            1) Use neutral language that does not imply stereotypes;<br>
+            2) Avoid using demographic identifiers unless necessary;<br>
+            3) Test prompts with diverse datasets to identify potential biases;<br>
+            4) Regularly review and update prompts based on feedback and new findings.<br>
+            Additionally, seek input from people of different backgrounds to spot unintended assumptions.<br>
+            Remember, even small wording changes can have a big impact on AI behavior and fairness.
+            `,
         category1: "General",
         category2: "Tip",
         rating: 3,
         bg: "bg-success",
         author: "Alex",
         difficulty: "Beginner",
+        image: "assets/images/post4.jpg",
     },
     {
         title: "Solving AI Bias Starts with Data Collection",
         content:
-            "Before jumping into bias mitigation methods, make sure your dataset actually reflects the people it affects. If your AI serves a global audience but was trained on U.S.-centric data, you’re already biased. Collecting ethical, representative data is the first real solution to systemic AI unfairness.",
+            "Before jumping into bias mitigation methods, make sure your dataset actually reflects the people it affects.<br>If your AI serves a global audience but was trained on U.S.-centric data, you're already biased.<br>Collecting ethical, representative data is the first real solution to systemic AI unfairness.<br>Experts stress the importance of transparency in data sourcing and annotation.<br>Without diverse and inclusive datasets, even the most advanced algorithms will continue to produce skewed results.",
         category1: "Technology",
         category2: "Solution",
         rating: 4,
         bg: "bg-success",
         author: "Arjun",
         difficulty: "Expert",
+        image: "assets/images/post5.jpg",
     },
 ];
 
@@ -78,6 +91,8 @@ function renderPosts() {
         const currentPostAuthor = document.getElementById(
             `post-author-${i + 1}`
         );
+        const currentPostImage = document.getElementById(`post-image-${i + 1}`);
+
         if (currentPostTitle) {
             currentPostTitle.textContent = data[i].title;
         }
@@ -86,7 +101,7 @@ function renderPosts() {
             currentPostUrgency.classList.add(data[i].bg);
         }
         if (currentPostContent) {
-            currentPostContent.textContent = data[i].content;
+            currentPostContent.innerHTML = data[i].content;
         }
         if (currentPostCategory1) {
             currentPostCategory1.textContent = data[i].category1;
@@ -95,7 +110,11 @@ function renderPosts() {
             currentPostCategory2.textContent = data[i].category2;
         }
         if (currentPostAuthor) {
-            currentPostAuthor.textContent = data[i].author;
+            currentPostAuthor.textContent = `${data[i].author}, ${data[i].difficulty}`;
+        }
+        if (currentPostImage && data[i].image) {
+            currentPostImage.src = data[i].image;
+            currentPostImage.alt = data[i].title;
         }
     }
 }
@@ -502,16 +521,10 @@ function portalTransition() {
             Math.sqrt(
                 Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)
             ) / 2;
-
-        // Start with a small circle and grow based on progress
-        const minRadius = 50; // Start with a visible circle
+        const minRadius = 50; 
         const currentRadius = minRadius + progress * (maxRadius - minRadius);
-
-        // Apply the size to the circle
         portalCircle.style.width = `${currentRadius * 2}px`;
         portalCircle.style.height = `${currentRadius * 2}px`;
-
-        // When the circle is large enough, show the content
         if (progress >= 0.8) {
             portalOverlay.classList.add("complete");
             portalOverlay.classList.remove("transitioning");
@@ -521,32 +534,45 @@ function portalTransition() {
             portalContent.classList.remove("show");
         }
     } else {
-        // Hide everything when not in the trigger zone
         portalOverlay.classList.add("hidden");
         portalOverlay.classList.remove("transitioning", "complete");
         portalContent.classList.remove("show");
-
-        // Reset circle size
         portalCircle.style.width = "0px";
         portalCircle.style.height = "0px";
     }
 }
 
-// Forum form functionality
+
 function initForumForm() {
     const urgencySlider = document.getElementById("urgency-level");
     const urgencyValue = document.getElementById("urgency-value");
+    const urgencySliderDesktop = document.getElementById(
+        "urgency-level-desktop"
+    );
+    const urgencyValueDesktop = document.getElementById(
+        "urgency-value-desktop"
+    );
+
     if (urgencySlider) {
         urgencySlider.addEventListener("input", function () {
             urgencyValue.textContent = this.value;
         });
     }
+
+    if (urgencySliderDesktop) {
+        urgencySliderDesktop.addEventListener("input", function () {
+            urgencyValueDesktop.textContent = this.value;
+        });
+    }
+
+    // Mobile form image handling
     const imageInput = document.getElementById("post-image");
     const imagePreview = document.getElementById("image-preview");
     const imagePreviewContainer = document.getElementById(
         "image-preview-container"
     );
     const removeImageBtn = document.getElementById("remove-image");
+
     if (imageInput) {
         imageInput.addEventListener("change", function (event) {
             const file = event.target.files[0];
@@ -568,6 +594,7 @@ function initForumForm() {
             }
         });
     }
+
     if (removeImageBtn) {
         removeImageBtn.addEventListener("click", function () {
             imageInput.value = "";
@@ -575,6 +602,90 @@ function initForumForm() {
             imagePreviewContainer.classList.remove("show");
         });
     }
+
+    // Desktop form image handling
+    const imageInputDesktop = document.getElementById("post-image-desktop");
+    const imagePreviewDesktop = document.getElementById(
+        "image-preview-desktop"
+    );
+    const imagePreviewContainerDesktop = document.getElementById(
+        "image-preview-container-desktop"
+    );
+    const removeImageBtnDesktop = document.getElementById(
+        "remove-image-desktop"
+    );
+
+    if (imageInputDesktop) {
+        imageInputDesktop.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    imageInputDesktop.value = "";
+                    return;
+                }
+                if (!file.type.startsWith("image/")) {
+                    imageInputDesktop.value = "";
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreviewDesktop.src = e.target.result;
+                    imagePreviewContainerDesktop.classList.add("show");
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    if (removeImageBtnDesktop) {
+        removeImageBtnDesktop.addEventListener("click", function () {
+            imageInputDesktop.value = "";
+            imagePreviewDesktop.src = "";
+            imagePreviewContainerDesktop.classList.remove("show");
+        });
+    }
+}
+
+// Create Post Toggle functionality
+function setupCreatePostToggle() {
+    const createPostToggle = document.getElementById("createPostToggle");
+    const createPostSidebar = document.getElementById(
+        "createPostSidebarDesktop"
+    );
+    const closeCreatePost = document.getElementById("closeCreatePost");
+    const postsMainContainer = document.getElementById("posts-main-container");
+
+    if (createPostToggle && createPostSidebar) {
+        createPostToggle.addEventListener("click", function () {
+            createPostSidebar.classList.add("show");
+            postsMainContainer.classList.add("sidebar-open");
+            createPostToggle.style.display = "none";
+        });
+    }
+
+    if (closeCreatePost && createPostSidebar) {
+        closeCreatePost.addEventListener("click", function () {
+            createPostSidebar.classList.remove("show");
+            postsMainContainer.classList.remove("sidebar-open");
+            createPostToggle.style.display = "block";
+        });
+    }
+
+    // Close sidebar when clicking outside (optional)
+    document.addEventListener("click", function (event) {
+        if (createPostSidebar && createPostSidebar.classList.contains("show")) {
+            const isClickInsideSidebar = createPostSidebar.contains(
+                event.target
+            );
+            const isClickOnToggle = createPostToggle.contains(event.target);
+
+            if (!isClickInsideSidebar && !isClickOnToggle) {
+                createPostSidebar.classList.remove("show");
+                postsMainContainer.classList.remove("sidebar-open");
+                createPostToggle.style.display = "block";
+            }
+        }
+    });
 }
 
 // Authentication functions
@@ -733,3 +844,4 @@ window.addEventListener("click", hideSidebar);
 document.addEventListener("DOMContentLoaded", applyClassForAccordion);
 document.addEventListener("DOMContentLoaded", initDonutChart);
 document.addEventListener("DOMContentLoaded", initForumForm);
+document.addEventListener("DOMContentLoaded", setupCreatePostToggle);
