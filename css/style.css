@@ -583,7 +583,7 @@ div>i {
     animation-play-state: paused;
 }
 
-#marquee-bg-start {
+.marquee-bg-start {
     position: absolute;
     top: 0;
     left: 0;
@@ -596,7 +596,7 @@ div>i {
     margin: 0;
 }
 
-#marquee-bg-end {
+.marquee-bg-end {
     position: absolute;
     top: 0;
     left: 0;

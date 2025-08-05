@@ -1,8 +1,21 @@
-# Todo for FED
+# FED CA2: Unfair By Design
 
-1. Modular Design explanation
-2. Javascript Animation explanation
-3. Components used and why we used them
-4. Login/Signup explanation
-5. Auth / Other Javascript function explanation
-6. Sources
+## Validation Checks
+
+index.html validated by [w3](https://validator.w3.org/) ✅<br>
+forum.html validated by [w3](https://validator.w3.org/) ✅<br>
+info.html validated by [w3](https://validator.w3.org/) ✅<br>
+login.html validated by [w3](https://validator.w3.org/) ✅<br>
+signup.html validated by [w3 CSS](https://jigsaw.w3.org/css-validator/validator) ✅<br>
+style.css validated by [w3 CSS](https://jigsaw.w3.org/css-validator/validator) ✅<br>
+script.js validated by [jsvalidator](https://jsvalidator.com/) ✅
+
+# 1. Design Thinking and Process
+
+# 2. Bootstrap and CSS
+
+# 3. Functions
+
+# 4. Implementation
+
+# 5. 

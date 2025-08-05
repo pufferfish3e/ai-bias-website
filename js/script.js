@@ -1,7 +1,8 @@
 /* Main JavaScript File
  * Handles authentication, form validation, post rendering, animations, and interactive features
- * Dependencies: Bootstrap 5.3.7, ApexCharts library
  */
+
+'use strict';
 
 // Authentication and global state variables (Track user login status and form references)
 const loginForm = document.getElementById("login-form");
