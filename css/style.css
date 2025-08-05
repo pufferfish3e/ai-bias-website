@@ -1,3 +1,5 @@
+/* CSS Variables and Global Styles (Define color scheme, fonts, and base styling) */
+
 :root {
     --color-bg: #F8F8F8 !important;
     --color-bg-dark: #1F1F1F !important;
@@ -19,7 +21,8 @@
     src: url("../assets/fonts/PPMori-Regular.otf") format("truetype");
 }
 
-/* base styles */
+/* CSS Base styles (Core HTML element styling and global settings) */
+
 html {
     scroll-behavior: smooth;
 }
@@ -82,7 +85,8 @@ div>i {
     color: black;
 }
 
-/* layout sections and containers */
+/* Layout sections and Containers (Main page sections, hero areas, and container styling) */
+
 .hero-section {
     position: relative;
     height: 100vh;
@@ -154,7 +158,8 @@ div>i {
     object-position: center;
 }
 
-/* nav and sidebar */
+/* Navigation (Sidebar) - Collapsible sidebar navigation with smooth transitions */
+
 #sidebar {
     transform: translateX(-100%);
     z-index: 1000;
@@ -166,7 +171,19 @@ div>i {
     transform: translateX(0);
 }
 
-/* typography and text styles */
+/* Bootstrap Utility Classes (Custom utility classes and overrides for Bootstrap framework) */
+
+.w-max {
+    width: fit-content;
+}
+
+.fs-xl {
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+}
+
 .icon-font {
     font-family: var(--font-icon);
 }
@@ -182,6 +199,25 @@ div>i {
     -webkit-background-clip: text;
     font-weight: bold;
 }
+
+.container,
+.container-fluid {
+    position: relative;
+}
+
+.position-fixed {
+    pointer-events: auto;
+}
+
+.position-absolute {
+    pointer-events: none;
+}
+
+.position-absolute>* {
+    pointer-events: auto;
+}
+
+/* Glassmorphism and Gradient Text Styles (Modern glass-effect styling and gradient text effects) */
 
 .gradient-glass-text {
     line-height: 1.2;
@@ -211,14 +247,7 @@ div>i {
     -webkit-text-fill-color: transparent;
 }
 
-.fs-xl {
-    font-size: 4rem;
-    margin: 0;
-    padding: 0;
-    font-weight: 900;
-}
-
-/* glassmorphism styles */
+/* Glassmorphism styles (Liquid glass effect with backdrop blur and transparency) */
 .liquidglass {
     background: linear-gradient(145deg,
             rgba(255, 255, 255, 0.18) 0%,
@@ -271,7 +300,43 @@ div>i {
     transform: translateY(-2px);
 }
 
-/* scroll animations/effects */
+.accordion-button.liquidglass {
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.18) 0%,
+            rgba(255, 255, 255, 0.04) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.08),
+        0 0 0 0.5px rgba(255, 255, 255, 0.2) inset !important;
+    letter-spacing: 0.5px !important;
+    color: white !important;
+}
+
+.accordion-button.liquidglass:focus {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.08),
+        0 0 0 0.5px rgba(255, 255, 255, 0.2) inset,
+        0 0 0 0.25rem rgba(255, 255, 255, 0.1) !important;
+}
+
+.accordion-button.liquidglass:not(.collapsed) {
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0.08) 100%) !important;
+    color: white !important;
+}
+
+.accordion-button.liquidglass::after {
+    filter: invert(1) !important;
+}
+
+/* Scroll Animation styles (Animations triggered by scroll position and viewport intersection) */
+
+/* Fade In Animation (Smooth opacity and transform effects for element entrance) */
+
 .fade-in {
     opacity: 0;
     transform: translateY(50px);
@@ -282,6 +347,8 @@ div>i {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Appear Animation (Scale-based animation for dramatic element entrance effects) */
 
 .appear {
     opacity: 0;
@@ -294,7 +361,7 @@ div>i {
     transform: scale(1);
 }
 
-/* Animated number styling - synced with fade-in */
+/* Animated number styling - synced with fade-in (Number counter animations synchronized with scroll-triggered fade effects) */
 .animated-number {
     font-weight: bold;
     opacity: 0;
@@ -307,7 +374,7 @@ div>i {
     transform: translateY(0);
 }
 
-/* Lines animation - positioned over the hero section */
+/* Lines animation - positioned over the hero section to create a raindrop-like effect. (Animated vertical lines with falling droplet effects for atmospheric background) */
 .lines {
     position: absolute;
     top: 0;
@@ -412,6 +479,8 @@ div>i {
     animation-delay: 1s;
 }
 
+/* Stars Background/Animation (Animated starfield background with rotating patterns and gradients) */
+
 #container-stars {
     position: absolute;
     z-index: -1;
@@ -476,6 +545,8 @@ div>i {
     opacity: 0.5;
 }
 
+/* Marquee Animation (Horizontal scrolling image carousel with smooth looping and hover pause) */
+
 .marquee-container {
     width: 100%;
     max-height: 20vh;
@@ -538,7 +609,7 @@ div>i {
     padding: 0;
 }
 
-/* animations (keyframes) */
+/* Keyframe declarations for the animations used (All @keyframes definitions for custom animations throughout the site) */
 
 @keyframes animStar {
     from {
@@ -593,6 +664,8 @@ div>i {
     }
 }
 
+/* Portal Animation - An animation which increases the size of the portal circle (Expanding circle portal effect for page transitions and visual impact) */
+
 #ai-governance-section {
     padding-bottom: 100vh;
 }
@@ -611,7 +684,6 @@ div>i {
     background: transparent;
     z-index: 9999;
     pointer-events: none;
-    /* Always allow interactions through the overlay */
     opacity: 1;
     margin: 0;
     padding: 0;
@@ -627,7 +699,6 @@ div>i {
     background: url("../assets/images/bg.jpg") no-repeat center center;
     background-size: cover;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    /* Debug border */
     border-radius: 50%;
     will-change: transform, width, height;
     display: flex;
@@ -635,7 +706,6 @@ div>i {
     align-items: center;
     z-index: 10000;
     pointer-events: none;
-    /* Allow interactions through the circle while it's small */
 }
 
 .portal-container {
@@ -664,7 +734,6 @@ div>i {
     margin: 0;
     padding: 0;
     pointer-events: none;
-    /* Initially no pointer events */
 }
 
 .portal-content .container {
@@ -676,7 +745,6 @@ div>i {
     margin: 0;
     padding: 0;
     pointer-events: auto;
-    /* Only enable pointer events when content is shown */
 }
 
 .portal-overlay.hidden {
@@ -688,14 +756,12 @@ div>i {
 .portal-overlay.transitioning {
     opacity: 1;
     pointer-events: none;
-    /* Keep allowing interactions during transition */
     z-index: 9999;
 }
 
 .portal-overlay.complete {
     opacity: 1;
     pointer-events: none;
-    /* Keep allowing interactions when complete */
     z-index: 9999;
     margin: 0;
     padding: 0;
@@ -708,8 +774,10 @@ div>i {
     width: 100%;
     height: 100vh;
     pointer-events: none;
-    /* Debug background */
+    /* Debug background for intersection observer detection area */
 }
+
+/* Styles for signup and login pages (Authentication page styling with background images and form elements) */
 
 #login-container {
     width: 100vw;
@@ -732,10 +800,6 @@ input::placeholder {
     border: 1px solid white !important;
 }
 
-.w-max {
-    width: fit-content;
-}
-
 #find-out-more:hover {
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
@@ -744,58 +808,6 @@ input::placeholder {
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
     letter-spacing: 0.5px !important;
     transition: color 0.5s ease-in-out, background 0.5s ease-in-out, box-shadow 0.5s ease-in-out, border 0.5s ease-in-out !important;
-}
-
-/* Accordion button overrides */
-.accordion-button.liquidglass {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.18) 0%,
-            rgba(255, 255, 255, 0.04) 100%) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow:
-        0 4px 30px rgba(0, 0, 0, 0.08),
-        0 0 0 0.5px rgba(255, 255, 255, 0.2) inset !important;
-    letter-spacing: 0.5px !important;
-    color: white !important;
-}
-
-.accordion-button.liquidglass:focus {
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    box-shadow:
-        0 4px 30px rgba(0, 0, 0, 0.08),
-        0 0 0 0.5px rgba(255, 255, 255, 0.2) inset,
-        0 0 0 0.25rem rgba(255, 255, 255, 0.1) !important;
-}
-
-.accordion-button.liquidglass:not(.collapsed) {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.25) 0%,
-            rgba(255, 255, 255, 0.08) 100%) !important;
-    color: white !important;
-}
-
-.accordion-button.liquidglass::after {
-    filter: invert(1) !important;
-}
-
-/* Container and positioning utilities */
-.container,
-.container-fluid {
-    position: relative;
-}
-
-.position-fixed {
-    pointer-events: auto;
-}
-
-.position-absolute {
-    pointer-events: none;
-}
-
-.position-absolute>* {
-    pointer-events: auto;
 }
 
 .username,
@@ -827,6 +839,8 @@ input::placeholder {
     font-size: 15px;
 }
 
+/* Forum Styles (Forum page layout, post styling, sidebar controls, and responsive design) */
+
 #forum {
     position: fixed;
     width: 100vw;
@@ -851,7 +865,6 @@ input::placeholder {
     width: 100%;
     max-width: 500px;
     min-width: 300px;
-    /* Ensure minimum usability */
 }
 
 .post-img {
@@ -880,7 +893,6 @@ input::placeholder {
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
 }
 
-/* Create Post Sidebar */
 .create-post-sidebar {
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.1) !important;
@@ -891,7 +903,6 @@ input::placeholder {
     transform: translateX(0) !important;
 }
 
-/* Posts Layout Adjustments */
 #posts-main-container {
     transition: width 0.3s ease, margin-right 0.3s ease;
 }
@@ -900,7 +911,6 @@ input::placeholder {
     margin-right: 420px;
 }
 
-/* Responsive Post Layout */
 .post-item {
     transition: all 0.3s ease;
 }
@@ -911,9 +921,6 @@ input::placeholder {
     object-fit: cover;
     border-radius: 10px;
 }
-
-/* Mobile - stacked layout */
-
 
 .post-image-container {
     object-fit: cover;
@@ -951,16 +958,16 @@ input::placeholder {
     aspect-ratio: auto;
 }
 
-/* Style for remove image buttons - initially hidden */
 #remove-image,
 #remove-image-desktop {
     margin-top: 8px;
 }
 
-/* Mobile Devices (max-width: 768px) */
-@media screen and (max-width: 768px) {
+/* Responsive Styles (Media queries and breakpoint-specific styling for all device sizes) */
 
-    /* Typography Scaling */
+/* Mobile Devices (max-width: 767px) - Optimized typography and layout for small screens */
+@media screen and (max-width: 767px) {
+
     .fs-xl {
         font-size: 2rem !important;
     }
@@ -1014,20 +1021,14 @@ input::placeholder {
         font-size: 0.8rem !important;
     }
 
-    .fs-7 {
-        font-size: 0.75rem !important;
-    }
-
-    /* Icon and special text */
     .icon-text {
         font-size: 1.5rem !important;
     }
 
-    /* Card Components */
     .card .card-body {
         padding: 1rem 0.5rem;
         min-height: 100px !important;
-        /* Reduced height for mobile */
+        /* Reduced height for mobile screens to improve layout density */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -1046,37 +1047,30 @@ input::placeholder {
         font-size: 1rem !important;
     }
 
-    /* Stat Cards Specific - Override .fs-xl for animated numbers in cards */
     .card .card-title.fs-xl.animated-number {
         font-size: 1.5rem !important;
-        /* Much smaller than default .fs-xl */
         margin-bottom: 0.5rem !important;
         line-height: 1.2 !important;
     }
 
-    /* Animated numbers */
     .animated-number {
         font-size: 1.8rem !important;
         margin-bottom: 0.5rem;
     }
 
-    /* Stats cards container - prevent excessive stretching */
     .row.row-cols-1.row-cols-sm-2.row-cols-md-4 {
         max-width: 100% !important;
     }
 
     .row.row-cols-1.row-cols-sm-2.row-cols-md-4 .col {
         max-width: 50% !important;
-        /* Show 2 cards per row on mobile */
         flex: 0 0 50% !important;
     }
 
-    /* Navigation */
     .nav-link {
         font-size: 0.9rem !important;
     }
 
-    /* Buttons */
     .btn {
         font-size: 0.85rem !important;
         padding: 0.5rem 1rem !important;
@@ -1086,29 +1080,29 @@ input::placeholder {
         padding: 20px;
     }
 
-        .post-image-container {
-            flex-basis: auto !important;
-            margin-bottom: 1rem;
-        }
-    
-        #createPostToggle {
-            display: none !important;
-        }
-    
-        #createPostSidebar {
-            display: block !important;
-        }
-    
-        #createPostSidebarDesktop {
-            display: none !important;
-        }
+    .post-image-container {
+        flex-basis: auto !important;
+        margin-bottom: 1rem;
+    }
 
-        .head {
-            margin: 30px;
-        }
+    #createPostToggle {
+        display: none !important;
+    }
+
+    #createPostSidebar {
+        display: block !important;
+    }
+
+    #createPostSidebarDesktop {
+        display: none !important;
+    }
+
+    .head {
+        margin: 30px;
+    }
 }
 
-/* Tablet Devices (768px - 1023px) */
+/* Tablet Devices (768px - 1023px) - Medium screen optimizations with balanced typography and spacing */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .post-image-container {
         max-width: 300px;
@@ -1172,16 +1166,10 @@ input::placeholder {
         font-size: 0.85rem !important;
     }
 
-    .fs-7 {
-        font-size: 0.8rem !important;
-    }
-
-    /* Icon and special text */
     .icon-text {
         font-size: 2.5rem !important;
     }
 
-    /* Card Components */
     .card .card-body {
         height: 110px;
     }
@@ -1196,17 +1184,14 @@ input::placeholder {
         font-size: 1.2rem !important;
     }
 
-    /* Animated numbers */
     .animated-number {
         font-size: 2.2rem !important;
     }
 
-    /* Navigation */
     .nav-link {
         font-size: 1rem !important;
     }
 
-    /* Buttons */
     .btn {
         font-size: 0.9rem !important;
         padding: 0.6rem 1.2rem !important;
@@ -1217,7 +1202,7 @@ input::placeholder {
     }
 }
 
-/* Desktop Devices (min-width: 1024px) */
+/* Desktop Devices (min-width: 1024px) - Full-scale desktop layout with maximum typography and spacing */
 @media screen and (min-width: 1024px) {
     .post-image-container {
         max-width: 300px;
@@ -1279,12 +1264,12 @@ input::placeholder {
         font-size: 1rem !important;
     }
 
-    /* Icon and special text */
+    /* Icon and special text (Large icon font sizing for visual impact) */
     .icon-text {
         font-size: 3rem !important;
     }
 
-    /* Card Components */
+    /* Card Components (Bootstrap card styling with consistent heights and spacing) */
     .card .card-body {
         min-height: 120px;
     }
@@ -1299,17 +1284,14 @@ input::placeholder {
         font-size: 1.5rem !important;
     }
 
-    /* Animated numbers */
     .animated-number {
         font-size: 3rem !important;
     }
 
-    /* Navigation */
     .nav-link {
         font-size: 1.125rem !important;
     }
 
-    /* Buttons */
     .btn {
         font-size: 1rem !important;
         padding: 0.75rem 1.5rem !important;

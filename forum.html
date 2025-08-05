@@ -2,9 +2,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Favicon -->
+        <!-- Site favicon for browser tab identification -->
         <link rel="icon" href="assets/icons/icon.svg" />
-        <!-- Bootstrap CDN -->
+        <!-- Bootstrap CSS framework for responsive design and components -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -12,7 +12,7 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="css/style.css" />
-        <!-- Bootstrap Icons -->
+        <!-- Bootstrap Icons library for UI iconography -->
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
@@ -21,7 +21,7 @@
     </head>
     <body>
         <header>
-            <!-- Sidebar Toggle Button (for all screens) -->
+            <!-- Sidebar Toggle Button (hamburger menu for navigation on all screen sizes) -->
             <button
                 id="sidebarToggle"
                 class="btn btn-light position-fixed top-0 start-0 m-3 z-3 bg-transparent text-white border-0 fs-4"
@@ -29,7 +29,7 @@
                 ☰
             </button>
 
-            <!-- Sidebar -->
+            <!-- Navigation Sidebar (collapsible sidebar with site navigation and branding) -->
             <nav
                 id="sidebar"
                 class="rounded p-3 vh-100 position-fixed top-0 start-0 liquidglass bg-transparent"
@@ -100,8 +100,9 @@
                 </div>
             </nav>
         </header>
+        <!-- Main content -->
         <main>
-            <!-- Toggle button for create post form -->
+            <!-- Toggle button for create post form (shows sidebar on desktop/tablet only) -->
             <button
                 id="createPostToggle"
                 class="btn btn-primary position-fixed bottom-0 start-0 m-3 z-3 d-none d-md-block"
@@ -109,6 +110,7 @@
                 <i class="bi bi-plus-circle me-2"></i>Create Post
             </button>
 
+            <!-- Forum section with posts and responsive create post form -->
             <section
                 id="forum"
                 class="d-flex flex-column flex-lg-row align-items-start overflow-x-hidden"
@@ -516,7 +518,7 @@
                     </div>
                 </div>
 
-                <!-- Create Post Sidebar -->
+                <!-- Mobile Create Post Form (visible only on mobile devices below 768px) -->
                 <div
                     class="w-100 w-lg-25 order-2 order-lg-1 d-md-none"
                     id="createPostSidebar"
@@ -558,7 +560,7 @@
                                 ></textarea>
                             </div>
 
-                            <!-- Image Upload -->
+                            <!-- Image Upload field with preview functionality -->
                             <div class="mb-2 mb-lg-3">
                                 <label
                                     for="post-image"
@@ -574,7 +576,7 @@
                                 <div class="form-text text-secondary small">
                                     Supported formats: JPG, PNG, GIF (Max 5MB)
                                 </div>
-                                <!-- Image Preview -->
+                                <!-- Image Preview container (shows only when image is uploaded) -->
                                 <div id="image-preview-container" class="mt-2">
                                     <img
                                         id="image-preview"
@@ -591,7 +593,7 @@
                                 </div>
                             </div>
 
-                            <!-- Experience Level (Radio Buttons) -->
+                            <!-- Experience Level selection (Radio Buttons for user skill level) -->
                             <div class="mb-2 mb-lg-3">
                                 <label
                                     class="form-label text-white fs-6 fs-lg-5"
@@ -645,7 +647,7 @@
                                 </div>
                             </div>
 
-                            <!-- Urgency Level (Range Slider) -->
+                            <!-- Urgency Level slider (Range Slider from 1-10 for priority rating) -->
                             <div class="mb-2 mb-lg-3">
                                 <label
                                     for="urgency-level"
@@ -778,7 +780,7 @@
                     </div>
                 </div>
 
-                <!-- Desktop/Tablet Create Post Sidebar (Hidden by default) -->
+                <!-- Desktop/Tablet Create Post Sidebar (slide-in sidebar hidden by default, activated by toggle button) -->
                 <div
                     id="createPostSidebarDesktop"
                     class="create-post-sidebar d-none d-md-block position-fixed top-0 end-0 h-100 bg-transparent shadow-lg"
@@ -823,7 +825,7 @@
                                 ></textarea>
                             </div>
 
-                            <!-- Image Upload -->
+                            <!-- Image Upload field with preview functionality for desktop -->
                             <div class="mb-3">
                                 <label
                                     for="post-image-desktop"
@@ -858,7 +860,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <!-- Experience Level -->
+                            <!-- Experience Level selection (Radio Buttons for user skill level) -->
                             <div class="mb-3">
                                 <label class="form-label text-white fs-6"
                                     >Your Experience Level</label
@@ -911,7 +913,7 @@
                                 </div>
                             </div>
 
-                            <!-- Urgency Level -->
+                            <!-- Urgency Level slider (Range Slider from 1-10 for priority rating) -->
                             <div class="mb-3">
                                 <label
                                     for="urgency-level-desktop"
@@ -940,7 +942,7 @@
                                 </div>
                             </div>
 
-                            <!-- Tags -->
+                            <!-- Tags selection (Checkboxes for categorizing posts) -->
                             <div class="mb-3">
                                 <label class="form-label text-white fs-6"
                                     >Tags</label
@@ -1025,7 +1027,7 @@
                                 </div>
                             </div>
 
-                            <!-- Contact Email -->
+                            <!-- Contact Email field (optional contact information for follow-up) -->
                             <div class="mb-3">
                                 <label
                                     for="contact-email-desktop"
@@ -1051,14 +1053,15 @@
                 </div>
             </section>
         </main>
+        <!-- Main JavaScript file for site functionality and forum features -->
         <script src="js/script.js"></script>
-        <!-- Bootstrap JavaScript Bundle -->
+        <!-- Bootstrap JavaScript Bundle (includes Popper.js for interactive components) -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
             crossorigin="anonymous"
         ></script>
-        <!-- Scripts for chart -->
+        <!-- ApexCharts library for data visualization and chart rendering -->
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </body>
 </html>

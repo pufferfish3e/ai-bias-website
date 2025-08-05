@@ -1,7 +1,15 @@
+/* Main JavaScript File
+ * Handles authentication, form validation, post rendering, animations, and interactive features
+ * Dependencies: Bootstrap 5.3.7, ApexCharts library
+ */
+
+// Authentication and global state variables (Track user login status and form references)
 const loginForm = document.getElementById("login-form");
 const signUpForm = document.getElementById("signup-form");
 let isUserLoggedIn = localStorage.getItem("isUserLoggedIn") === "true";
 let loggedInUser = localStorage.getItem("loggedInUser");
+
+// Forum post data array (Static data for displaying forum posts with AI bias examples and tips)
 const data = [
     {
         title: "Facial Recognition Wrongly Arrests Innocent Man",
@@ -41,8 +49,7 @@ const data = [
     },
     {
         title: "How to Check if your AI prompt encourages bias",
-        content:
-            `
+        content: `
             To ensure your AI prompts do not encourage bias, consider the following steps:<br>
             1) Use neutral language that does not imply stereotypes;<br>
             2) Avoid using demographic identifiers unless necessary;<br>
@@ -73,6 +80,7 @@ const data = [
     },
 ];
 
+// Post rendering functions (Dynamically populate forum posts from data array into HTML elements)
 function renderPosts() {
     for (let i = 0; i < data.length; i++) {
         const currentPostTitle = document.getElementById(`post-title-${i + 1}`);
@@ -119,6 +127,7 @@ function renderPosts() {
     }
 }
 
+// Keyboard shortcuts and navigation functions (Handle keyboard input and sidebar navigation)
 function detectKeyboardShortcut(event) {
     if (event.key === "/") {
         event.preventDefault();
@@ -157,6 +166,9 @@ function hideSidebar(event) {
     }
 }
 
+// Form validation functions (Handle input validation for login and signup forms)
+// Uses validateUsername and validatePassword functions to check input fields
+
 function validateInputs() {
     const usernameInputLogin = document.getElementById("loginUsername");
     const passwordInputLogin = document.getElementById("loginPassword");
@@ -177,7 +189,7 @@ function validateInputs() {
 }
 
 function validateUsername(inputElement, displayElement, errorElement) {
-    // Validate with regex according to stack overflow
+    // Username validation: alphanumeric characters only (a-z, A-Z, 0-9)
     const regex = /^[a-zA-Z0-9]+$/;
     let isValid = true;
     let error = "";
@@ -234,12 +246,12 @@ function validateForm() {
     const passwordInputLogin = document.getElementById("loginPassword");
     const usernameInputSignup = document.getElementById("signUpUsername");
     const passwordInputSignup = document.getElementById("signUpPassword");
-    const usernameInput = usernameInputLogin || usernameInputSignup;
-    const passwordInput = passwordInputLogin || passwordInputSignup;
     const usernameElement = document.querySelector(".username");
     const passwordElement = document.querySelector(".password");
     const usernameError = document.getElementById("usernameError");
     const passwordError = document.getElementById("passwordError");
+    const usernameInput = usernameInputLogin || usernameInputSignup;
+    const passwordInput = passwordInputLogin || passwordInputSignup;
 
     if (!usernameInput || !passwordInput) return true;
 
@@ -257,10 +269,9 @@ function validateForm() {
     return usernameValid && passwordValid;
 }
 
-// Section for animations / Transitions.
-
-// extended logic because the typewriter effect needs to handle HTML tags
+// Animation and visual effects functions (Handle scroll animations, typewriter effects, and visual transitions)
 function typeWriterEffect() {
+    // Typewriter effect with HTML tag support for dynamic text rendering
     const textElement = document.getElementById("typewriter-text");
     if (!textElement) return;
     const originalHTML = textElement.innerHTML;
@@ -385,8 +396,7 @@ function appear() {
     });
 }
 
-// https://bootstrapbrain.com/component/bootstrap-doughnut-chart-card-minimal-example/
-
+// Chart initialization functions (Setup ApexCharts donut chart for bias statistics visualization)
 function initDonutChart() {
     const chartOptions = {
         series: [26.1, 22.8, 22.6, 19, 9.5],
@@ -444,13 +454,6 @@ function animateIntoNumber() {
                     10
                 );
                 const suffix = element.getAttribute("data-suffix") || "";
-                // if (isNaN(targetNumber) || targetNumber <= 0) {
-                //     console.warn(
-                //         "Invalid data-target for animated number:",
-                //         element
-                //     );
-                //     return;
-                // }
 
                 let currentNumber = 0;
                 const increment = Math.max(1, Math.ceil(targetNumber / 60));
@@ -496,7 +499,6 @@ function portalTransition() {
 
     const sectionRect = portalTriggerSection.getBoundingClientRect();
     const windowHeight = window.innerHeight;
-    const scrollY = window.scrollY;
 
     // Check if we're at the bottom section where the portal should activate
     // The detectme element should be coming into view from the bottom
@@ -518,7 +520,7 @@ function portalTransition() {
             Math.sqrt(
                 Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)
             ) / 2;
-        const minRadius = 50; 
+        const minRadius = 50;
         const currentRadius = minRadius + progress * (maxRadius - minRadius);
         portalCircle.style.width = `${currentRadius * 2}px`;
         portalCircle.style.height = `${currentRadius * 2}px`;
@@ -539,7 +541,7 @@ function portalTransition() {
     }
 }
 
-
+// Forum form initialization and image handling (Setup forum form controls and image preview functionality)
 function initForumForm() {
     const urgencySlider = document.getElementById("urgency-level");
     const urgencyValue = document.getElementById("urgency-value");
@@ -643,7 +645,7 @@ function initForumForm() {
     }
 }
 
-// Create Post Toggle functionality
+// Create post toggle functionality (Handle desktop sidebar toggle for create post form)
 function setupCreatePostToggle() {
     const createPostToggle = document.getElementById("createPostToggle");
     const createPostSidebar = document.getElementById(
@@ -668,7 +670,7 @@ function setupCreatePostToggle() {
         });
     }
 
-    // Close sidebar when clicking outside (optional)
+    // Close sidebar when clicking outside for better UX
     document.addEventListener("click", function (event) {
         if (createPostSidebar && createPostSidebar.classList.contains("show")) {
             const isClickInsideSidebar = createPostSidebar.contains(
@@ -685,7 +687,7 @@ function setupCreatePostToggle() {
     });
 }
 
-// Authentication functions
+// User authentication and session management (Handle login/logout functionality and user state)
 function handleLoginLogout(event) {
     event.preventDefault();
     const button = document.getElementById("nav-login");
@@ -761,7 +763,7 @@ function submitSignUpForm(event) {
         alert("You are already logged in.");
         return;
     }
-    
+
     if (!validateForm()) {
         console.log("Form validation failed");
         return;
@@ -797,7 +799,7 @@ function submitSignUpForm(event) {
     successModal.show();
 }
 
-// For debugging
+// Development and debugging utilities (Helper functions for testing and development)
 function setSampleCredentials() {
     localStorage.setItem(
         "users",
@@ -809,14 +811,15 @@ function setSampleCredentials() {
 function unLogUser() {
     isUserLoggedIn = false;
     localStorage.setItem("isUserLoggedIn", "false");
-    updateButtonText(); // Update button text immediately
+    updateButtonText();
     console.log("User logged out");
 }
 
-// event listeners for events
+// Application initialization and event listeners (Setup all event handlers and initialize components)
+// Initialize core functionality
 renderPosts();
 
-// Form event listeners
+// Form submission event listeners
 if (loginForm) {
     loginForm.addEventListener("submit", submitLoginForm);
 }
@@ -825,7 +828,7 @@ if (signUpForm) {
     signUpForm.addEventListener("submit", submitSignUpForm);
 }
 
-// Other event listeners
+// DOM and interaction event listeners
 document.addEventListener("DOMContentLoaded", initializeAuthHandler);
 document.addEventListener("keydown", detectKeyboardShortcut);
 window.addEventListener("DOMContentLoaded", setupSidebarToggle);
