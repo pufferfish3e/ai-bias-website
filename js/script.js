@@ -234,8 +234,6 @@ function validateForm() {
     const passwordInputLogin = document.getElementById("loginPassword");
     const usernameInputSignup = document.getElementById("signUpUsername");
     const passwordInputSignup = document.getElementById("signUpPassword");
-
-    // Determine which inputs are available
     const usernameInput = usernameInputLogin || usernameInputSignup;
     const passwordInput = passwordInputLogin || passwordInputSignup;
     const usernameElement = document.querySelector(".username");
@@ -243,9 +241,8 @@ function validateForm() {
     const usernameError = document.getElementById("usernameError");
     const passwordError = document.getElementById("passwordError");
 
-    if (!usernameInput || !passwordInput) return true; // No form to validate
+    if (!usernameInput || !passwordInput) return true;
 
-    // Validate both fields
     const usernameValid = validateUsername(
         usernameInput,
         usernameElement,
@@ -760,8 +757,11 @@ function submitLoginForm(event) {
 
 function submitSignUpForm(event) {
     event.preventDefault();
-
-    // Validate form before processing
+    if (isUserLoggedIn) {
+        alert("You are already logged in.");
+        return;
+    }
+    
     if (!validateForm()) {
         console.log("Form validation failed");
         return;

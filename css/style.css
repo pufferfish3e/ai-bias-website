@@ -1102,6 +1102,10 @@ input::placeholder {
         #createPostSidebarDesktop {
             display: none !important;
         }
+
+        .head {
+            margin: 30px;
+        }
 }
 
 /* Tablet Devices (768px - 1023px) */
@@ -1145,7 +1149,7 @@ input::placeholder {
 
     p,
     .fs-4 {
-        font-size: 1rem !important;
+        font-size: 0.9rem !important;
     }
 
     .fs-1 {
@@ -1206,6 +1210,10 @@ input::placeholder {
     .btn {
         font-size: 0.9rem !important;
         padding: 0.6rem 1.2rem !important;
+    }
+
+    .head {
+        margin: 30px;
     }
 }
 
