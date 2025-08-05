@@ -6,4 +6,3 @@
 4. Login/Signup explanation
 5. Auth / Other Javascript function explanation
 6. Sources
-7. AI declaration

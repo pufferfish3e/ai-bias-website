@@ -98,7 +98,6 @@ Interactive form
 
 used links:
 https://codehim.com/animation-effects/fade-in-on-scroll-css-javascript/
-https://medium.com/developing-female-leaders/redefining-professional-relationships-3999b83ce388
 https://bootstrapbrain.com/component/bootstrap-doughnut-chart-card-minimal-example/
 https://www.gradientmagic.com/collection/darkbg
 https://bootstrapexamples.com/@anonymous/marquee-animation
@@ -106,10 +105,4 @@ https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstor
 https://stackoverflow.com/questions/18042133/check-if-input-is-number-or-letter-javascript
 
 
-declare:
-number animation (javascript)
-scroll animation (javascript)
-portal overlay animation (javascript)
-file validation from image (javascript)
 
-change example forum from html to js
