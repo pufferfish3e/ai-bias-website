@@ -106,7 +106,10 @@ These make the code easily scalable and more robust. If one of the functions sho
 
 ### Core Functions Overview
 
-#### 🏠 Homepage Features (`index.html`)
+**Keyboard Shortcuts**
+
+Keyboard shortcuts were an amazing feature to incorporate within my website. They helped significantly with the user experience significantly as it is often implemented in other websites. Moreover, its simplistic logic led to its wide adoption. To create a keyboard shortcut, I used the `event.key` property and detected when it was pressed. If it is pressed, it will focus on the desired element.
+
 
 **Typewriter Effect Animation**
 
@@ -125,202 +128,49 @@ For animated statistics, for every card, a numerical variable will keep being in
 The interactive portal animation was one of the hardest functions to implement. The user would scroll all the way down to the page until there were no elements within the viewport. After which, a tiny circle which is user-controlled will slowly expand to occupy the full viewport width and height, with the animation acting as a section transition.
 For the interactive portal animation, the implementation might look complex but in reality, it is quite simple. A div with the id `detectme` is positioned at the bottom of the page, with an extra 100vh space above it to act as extra scroll space for all the elements to be scrolled out of. Then, the classes of the elements are toggled from `.hidden` to `.transitioning`, changing the state of the circle from a hidden, immutable size into a dynamic, scroll-controlled shape of which its radius would increase based on the scroll progress of the user. Once the user has scrolled fully, Some text would animate in creating a sleek animation that is user-controlled via scroll.
 
-#### 👤 Authentication System (`login.html`, `signup.html`)
-
-**Form Validation Engine**
+**Form Validation**
 
 There were 2 types of form validation:
 
-1. (Main) Login / Signup form<br>
+1. (Main) Login / Signup form
+
+
     This form validated user input as follows:
     - The user's username must not be empty and can only contain letters a-z, A-Z and 0-9.
-    - The length of the password should be no shorter than 8 characters.<br>
+    - The length of the password should be no shorter than 8 characters.
+
+
     If the user did not meet the requirements, a red line would show that the user has not fulfiled the requirements of the form and hence prevent the form to be submitted.
 
-2. Post creation
+2. Post creation form validation
 
-**LocalStorage Authentication**
+    This form validates user input as follows:
+    - Post content cannot be more than 500 characters.
+    - All required fields have to be filled in.
+    - Image file size must not be over 5MB.
 
-```javascript
-// Global state management
-let isUserLoggedIn = localStorage.getItem("isUserLoggedIn") === "true";
-let loggedInUser = localStorage.getItem("loggedInUser");
+**Authentication**
 
-// Persistent user sessions across page reloads
-// Secure credential storage for demo purposes
-// Session state synchronization across pages
-```
+There are a few authentication functions.
 
-#### 💬 Forum Functionality (`forum.html`)
+Authentication in this project uses localstorage to store usernames and their passwords. Hence there is no server-side verification.
+Authentication is simple, when the user signs up, localstorage creates a JSON object with a key of username and password with their respective values. When the user logs in, localstorage checks through all instances of established usernames and checks if the username exists, or the username and password to match before setting the state of the user to be logged in. Authentication also involves the use of success modals upon successful login/signup, and also uses javascript alerts for invalid form submission.
 
 **Dynamic Post Rendering**
 
-```javascript
-function renderPosts() {
-    // Renders forum posts from data array
-    // Automatic image assignment (post1.jpg - post5.jpg)
-    // Responsive layout: flex-row (desktop) vs flex-col (mobile)
-    // Category-based styling with Bootstrap badges
-    // User authentication integration for posting privileges
-}
-```
-
-**Forum Data Structure**
-
-```javascript
-const data = [
-    {
-        title: "Facial Recognition Wrongly Arrests Innocent Man",
-        content:
-            "A Detroit man was arrested after facial recognition misidentified him...",
-        category1: "AI Bias News",
-        category2: "Example",
-        rating: 9,
-        bg: "bg-danger",
-        author: "Aisha",
-        difficulty: "Intermediate",
-        image: "assets/images/post1.jpg",
-    },
-    // Additional posts covering Singapore AI bias cases and solutions
-];
-```
-
-**Toggle-Based UI Control**
-
-```javascript
-function setupCreatePostToggle() {
-    // Desktop/tablet toggle button for create post sidebar
-    // Smooth slide-in/out animations
-    // Full-width post view when sidebar is hidden
-    // Responsive behavior management
-}
-
-function initForumForm() {
-    // Dual form handling: mobile inline + desktop sidebar
-    // Image preview functionality with remove option
-    // Form validation and submission handling
-    // File upload simulation and preview generation
-}
-```
-
-#### 🎨 Animation and Visual Effects
-
-**Parallax and Scroll Effects**
-
-```javascript
-// Smooth scroll behavior implementation
-html {
-    scroll-behavior: smooth;
-}
-
-// Keyboard navigation shortcuts
-function detectKeyboardShortcut(event) {
-    // '/' key for search focus
-    // ESC key for sidebar closing
-    // Accessibility-focused keyboard navigation
-}
-```
-
-**Interactive Background Animations**
-
--   **Starfield Animation**: Rotating star patterns with CSS keyframes
--   **Falling Lines**: Raindrop-like vertical line animations
--   **Marquee Scrolling**: Horizontal image carousel with pause on hover
--   **Portal Transitions**: Expanding circle effects for page navigation
+Within this project, I wouldn't say that the post is dynamically rendered. However, I decided to implement the dynamic rendering of content onto the placeholder posts. Creating individual posts dynamically would have been extremely more tedious, and for this project that is not needed. However, content is fetched from an internal variable called data, an array with 5 objects corresponding to the 5 posts. Content is rendered onto the page by matching the respective id of the element where content is supposed to be rendered to the content itself using the `document.getElementById` method.
 
 ### 🔧 Utility Functions
 
-#### Navigation and UI Control
+**Navbar**
 
-```javascript
-function setupSidebarToggle() {
-    // Collapsible sidebar with smooth transitions
-    // Mobile hamburger menu functionality
-    // Click-outside-to-close behavior
-}
+The navbar used a little bit of javascript to include it's toggle functionality, although most of the toggle functionality already worked with bootstrap's classes. In order to move the navbar to the side, I had to add additional logic just to toggle a class from showing.
 
-function hideSidebar(event) {
-    // Smart sidebar hiding logic
-    // Event delegation for efficient handling
-    // Preserves accessibility during transitions
-}
-```
+**Charts**
 
-#### Data Visualization (`info.html`)
-
-```javascript
-function initDonutChart() {
-    // ApexCharts integration for Singapore AI bias statistics
-    // Responsive chart sizing
-    // Interactive data point hover effects
-    // Real data from Singapore AI governance initiatives
-}
-```
-
-### State Management
-
--   **LocalStorage Integration**: User preferences, authentication state, forum posts
--   **Global Variables**: Authentication status, user data, form references
--   **Event Handling**: Comprehensive event delegation and cleanup
--   **Responsive Behavior**: Device detection and adaptive functionality
-
-### 🔧 Utility Functions
-
-#### Local Storage Management
-
--   **User Sessions**: Persistent login state across page reloads
--   **Post Data**: Forum posts stored locally for demonstration
--   **Preferences**: User settings and theme preferences
-
-#### Form Validation
-
--   **Real-time Validation**: Instant feedback on form inputs
--   **Error Handling**: User-friendly error messages
--   **Success States**: Confirmation feedback for completed actions
-
-#### Responsive Behavior
-
--   **Device Detection**: Adapts functionality based on screen size
--   **Touch Support**: Enhanced mobile interactions
--   **Keyboard Navigation**: Accessibility-focused navigation support
+The chart within this project used ApexCharts for data visualisation. 
 
 # 4. Implementation
-
-# 4. Implementation
-
-## 🛠️ Technical Implementation
-
-### Actual File Structure
-
-```
-📁 FED-CA2-2526S1/
-├── 📄 index.html          # Landing page with typewriter effects and animated backgrounds
-├── 📄 forum.html          # Interactive forum with toggle sidebar and dynamic posts
-├── 📄 info.html           # Information page with charts and educational content
-├── 📄 login.html          # Authentication page with form validation
-├── 📄 signup.html         # Registration page with real-time validation
-├── 📁 css/
-│   └── 📄 style.css       # 2000+ lines of custom styles and animations
-├── 📁 js/
-│   ├── 📄 script.js       # Main functionality (500+ lines)
-│   └── 📄 script.js.backup # Development backup
-├── 📁 assets/
-│   ├── 📁 fonts/
-│   │   ├── 📄 PPMori-Regular.otf      # Primary typography
-│   │   └── 📄 Tropical-Asian.ttf     # Display font for branding
-│   ├── 📁 icons/
-│   │   ├── 📄 chatgpt.svg            # AI-related iconography
-│   │   ├── 📄 icon.svg               # Site favicon
-│   │   └── 📄 profile.svg            # User interface icons
-│   └── 📁 images/
-│       ├── 📄 bg.jpg, bg2.jpg        # Background textures
-│       ├── 📄 forumheader.jpg        # Forum section headers
-│       ├── 📄 marquee-1 to 4.jpg     # Scrolling carousel images
-│       ├── 📄 office.jpg             # Info page hero background
-│       └── 📄 post1-5.jpg            # Dynamic forum post images
-├── 📄 README.md           # Project documentation
-└── 📄 todo.md            # Development tracking
-```
 
 ### Page-Specific Implementation
 
@@ -336,49 +186,14 @@ function initDonutChart() {
 -   **Scroll-Triggered Content**: Fade-in animations using Intersection Observer
 -   **Interactive Elements**: Smooth scroll navigation and CTA buttons
 
-**Technical Details:**
-
-```html
-<!-- Animated Lines Background -->
-<div class="lines">
-    <div class="line"></div>
-    <!-- x9 with staggered animations -->
-</div>
-
-<!-- Hero with Typewriter Effect -->
-<h1 id="typewriter-text" class="fs-xl gradient-glass-text">
-    You can't spell "AI" without "I".<br />But who's the Real Problem?
-</h1>
-```
-
 #### 📋 `forum.html` - Advanced Forum System
 
 **Features Implemented:**
 
 -   **Responsive Toggle Layout**:
-    -   Mobile: Inline create post form
-    -   Desktop/Tablet: Slide-in sidebar triggered by bottom-left button
--   **Dynamic Post Rendering**: 5 AI bias case studies with cycling images
--   **Image Integration**: Automatic assignment of post1.jpg through post5.jpg
--   **Responsive Design**: Flex-row layout for desktop, flex-col for mobile
-
-**Forum Data Structure:**
-
-```javascript
-// Real Singapore AI bias examples
-const data = [
-    {
-        title: "Facial Recognition Wrongly Arrests Innocent Man",
-        category1: "AI Bias News",
-        category2: "Example",
-        rating: 9,
-        bg: "bg-danger",
-        difficulty: "Intermediate",
-        image: "assets/images/post1.jpg",
-    },
-    // 5 total posts covering bias examples and solutions
-];
-```
+    -   Mobile: Inline create post form (scroll to bottom)
+    -   Desktop/Tablet: Slide-in sidebar triggered by bottom-left button to open create post form
+-   **Dynamic Post Rendering**: 5 posts with images, tags etc.
 
 #### 🔐 `login.html` & `signup.html` - Authentication System
 
@@ -389,16 +204,6 @@ const data = [
 -   **Security Features**: Password strength validation and error handling
 -   **Bootstrap Modals**: Success/error feedback with glassmorphism styling
 
-**Validation Implementation:**
-
-```javascript
-function validateUsername(inputElement, displayElement, errorElement) {
-    // Length validation, character restrictions
-    // Visual feedback with border colors
-    // Real-time error message display
-}
-```
-
 #### � `info.html` - Educational Content
 
 **Features Implemented:**
@@ -407,178 +212,6 @@ function validateUsername(inputElement, displayElement, errorElement) {
 -   **Data Visualization**: ApexCharts integration for Singapore AI statistics
 -   **Accordion Interface**: Expandable content sections with glassmorphism
 -   **Portal Animation**: Page transition effects with expanding circles
-
-### Advanced Features
-
-#### 🎨 Glassmorphism Design System
-
-```css
-.liquidglass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-```
-
-#### � Responsive Implementation
-
--   **Mobile Breakpoint (≤767px)**: Compact layouts, stacked navigation
--   **Tablet Breakpoint (768px-1023px)**: Enhanced spacing, toggle functionality
--   **Desktop Breakpoint (≥1024px)**: Full sidebar, advanced animations
-
-#### ⚡ Performance Optimizations
-
--   **CSS Animations**: GPU-accelerated transforms and transitions
--   **Font Loading**: Optimized `@font-face` declarations with fallbacks
--   **Image Optimization**: Responsive images with proper aspect ratios
--   **JavaScript Efficiency**: Event delegation and minimal DOM manipulation
-
-### Development Workflow
-
-#### Code Quality Standards
-
--   **W3C HTML Validation**: All 5 HTML files pass validation ✅
--   **W3C CSS Validation**: style.css passes validation ✅
--   **JavaScript Validation**: script.js validated through JSValidator ✅
--   **Professional Documentation**: Comprehensive commenting throughout codebase
-
-#### Browser Compatibility
-
--   **Chrome**: Full functionality and animations
--   **Firefox**: Complete compatibility with smooth performance
--   **Safari**: Optimized for WebKit rendering engine
--   **Edge**: Cross-platform consistency maintained
-
-#### Accessibility Implementation
-
--   **Semantic HTML**: Proper heading hierarchy and landmark elements
--   **ARIA Labels**: Screen reader support for interactive elements
--   **Keyboard Navigation**: Full keyboard accessibility with focus management
--   **Color Contrast**: High contrast ratios meeting WCAG 2.1 guidelines
-
-#### Version Control
-
--   **Git Integration**: Tracked through GitHub repository
--   **Branching Strategy**: Feature branches with main deployment
--   **Documentation**: Detailed commit messages and comprehensive code comments
-
-#### Testing Approach
-
--   **Cross-Browser**: Tested on Chrome, Firefox, Safari, Edge
--   **Device Testing**: Mobile, tablet, and desktop viewports
--   **Functionality Testing**: All interactive features verified
--   **Performance Testing**: Load times and responsiveness optimized
-
-# 5. Improvements
-
-## 🚀 Future Enhancements
-
-### Short-term Improvements (Next Sprint)
-
--   **Backend Integration**: Replace LocalStorage with proper database (MongoDB/PostgreSQL)
--   **Real-time Forum**: WebSocket integration for live post updates and notifications
--   **Enhanced Security**: JWT authentication and password hashing
--   **File Upload System**: Allow users to upload custom images to forum posts
--   **Advanced Search**: Full-text search functionality across forum posts and content
--   **User Avatars**: Profile picture support with image processing
-
-### Medium-term Goals (Next Quarter)
-
--   **AI Integration**:
-    -   Implement bias detection API for analyzing user-submitted content
-    -   ChatGPT integration for AI bias education assistant
-    -   Sentiment analysis for forum post categorization
--   **Extended User Profiles**:
-    -   User reputation system based on post quality
-    -   Personal dashboards with activity tracking
-    -   Bookmarking and favorites functionality
--   **Advanced Moderation**:
-    -   Content reporting and flagging system
-    -   Admin panel for community management
-    -   Automated content filtering for inappropriate material
--   **Analytics Integration**:
-    -   Google Analytics for user behavior tracking
-    -   Custom dashboard for engagement metrics
-    -   A/B testing framework for UI improvements
-
-### Long-term Vision (Next Year)
-
--   **Government Partnership**:
-    -   Integration with Singapore's AI governance APIs
-    -   Real-time bias incident reporting to authorities
-    -   Collaboration with MCI and IMDA for policy updates
--   **Educational Platform Expansion**:
-    -   Interactive AI bias simulation tools
-    -   Certification program for AI ethics awareness
-    -   Corporate training modules for businesses
--   **Mobile Application**:
-    -   React Native app for iOS and Android
-    -   Offline functionality for educational content
-    -   Push notifications for forum activity
--   **Multilingual Support**:
-    -   English, Mandarin, Malay, Tamil localization
-    -   Cultural adaptation for different communities
-    -   Right-to-left language support
-
-## 🔧 Technical Debt & Optimizations
-
-### Performance Enhancements Currently Needed
-
--   **Image Optimization**:
-    -   Convert all images to WebP format with fallbacks
-    -   Implement lazy loading for forum post images
-    -   Add progressive image loading with blur-up effect
--   **Code Splitting**:
-    -   Break script.js into modular components
-    -   Implement dynamic imports for page-specific functionality
-    -   Bundle optimization with webpack or Vite
--   **Caching Strategy**:
-    -   Service Worker implementation for offline functionality
-    -   Browser cache optimization for static assets
-    -   CDN integration for global content delivery
-
-### Accessibility Improvements Identified
-
--   **Enhanced ARIA Support**:
-    -   Complete ARIA landmark implementation
-    -   Screen reader optimized forum navigation
-    -   Voice control compatibility testing
--   **Keyboard Navigation**:
-    -   Full tab order optimization
-    -   Skip links for screen reader users
-    -   Keyboard shortcuts documentation
--   **Visual Accessibility**:
-    -   High contrast mode support
-    -   Font size adjustment controls
-    -   Motion reduction preferences respect
-
-### Code Quality & Maintainability
-
--   **JavaScript Modernization**:
-    -   ES6+ module system implementation
-    -   Async/await pattern adoption throughout
-    -   Error handling and logging improvements
--   **CSS Architecture**:
-    -   Implement CSS-in-JS or styled-components
-    -   Design system with component library
-    -   CSS custom properties expansion
--   **Documentation Enhancement**:
-    -   Complete JSDoc implementation
-    -   Component usage examples
-    -   API documentation for future backend integration
-
-## 📈 Lessons Learned & Development Insights
-
-### Technical Discoveries
-
-1. **Glassmorphism Performance**: Backdrop-filter effects require careful optimization for mobile devices
-2. **Animation Timing**: Scroll-triggered animations need intersection observer throttling for smooth performance
-3. **LocalStorage Limitations**: Client-side storage works for prototyping but requires backend for scalability
-4. **CSS Grid vs Flexbox**: Hybrid approach provides best responsive design flexibility
-5. **Custom Font Loading**: @font-face optimization critical for perceived performance
-
 
 ## 📞 Contact & Support
 
