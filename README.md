@@ -24,6 +24,8 @@ The design follows a minimalist design which incorporates **glassmorphism** and 
 
 ### Visuals
 
+I was thinking of incorporating a minimalistic but still visually appealing website which uses components appropriately, hence choosing a black and white color combo. For fonts and typography, I went for something more readable but also pleasing to look at.
+
 -   **Color Palette**:
     -   Primary: Deep blacks with gradient overlays
     -   Accent: Light/transparent glass effects with rgba transparency, as well as Darker versions.
@@ -35,6 +37,8 @@ The design follows a minimalist design which incorporates **glassmorphism** and 
     -   Parallax scrolling and scroll-triggered animations
 
 ### User Experience Principles
+
+When designing for user experience, I tried my best to keep the design minimal but functional, incorporating keyboard shortcuts so the user can search for stuff without leaving the keyboard. In layout terms, I have also used bootstraps responsive classes and css media queries together to refine layout that would suit larger screens but not smaller screens.
 
 1. **Responsive Design**:
     - Breakpoints: 768px (tablet), 1024px (desktop)
@@ -52,10 +56,7 @@ The design follows a minimalist design which incorporates **glassmorphism** and 
 
 # 2. Bootstrap and CSS
 
-### Bootstrap 5.3.7 Integration
-
--   **CDN Implementation**: Loaded via Bootstrap CDN 
--   **Bootstrap Classes**: Extensive use of bootstrap responsive classes
+### Bootstrap 5.3.7 Integration 
 -   **Bootstrap Components**: Appropriate use of Bootstrap components such as:
     - Modal
     - Accordion
@@ -63,37 +64,18 @@ The design follows a minimalist design which incorporates **glassmorphism** and 
     - Marquee (css native)
     - Button
     - Badge
-    - 
--   **Bootstrap Icons**: Integration of Bootstrap icons to show company icons
+    - Form
+-   **Bootstrap Icons**: Integration of Bootstrap icons to show company icons, and some visual icons too.
 
-### Custom CSS Architecture
+### CSS Architecture
 
-#### Core Styling Structure
-
-
-
-#### Responsive Design Implementation
-
--   **Mobile First (≤767px)**: Optimized typography and compact layouts
--   **Tablet (768px-1023px)**: Enhanced spacing and medium screen optimizations
--   **Desktop (≥1024px)**: Full-scale layout with maximum typography and spacing
+My css section was mostly used to style css-only animations, such as the scroll-triggered animations, like the fade-in animation and the appear animation which toggles show classes based on their visibility within the viewport. Moreover, much more complex animations such as the portal effect use more javascript. A main bulk of css used is listed here, while the rest would be used for styling and responsiveness.
 
 #### Advanced Animation System
 
 1. **Scroll-Triggered Animations**:
-
-    ```css
-    .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-    }
-
-    .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    ```
+    - fade-in animation (js included)
+    - appear animation (js included)
 
 2. **Background Animations**:
 
@@ -106,26 +88,21 @@ The design follows a minimalist design which incorporates **glassmorphism** and 
     - Toggle animations for forum sidebar
     - Portal transition effects for page navigation
 
-### Performance Optimizations
-
--   **Font Loading**: Custom `@font-face` declarations with format optimization
--   **Animation Performance**: GPU-accelerated transforms and transitions
--   **CSS Organization**: Modular structure with clear section comments
--   **Browser Compatibility**: Tested across Chrome, Firefox, Safari, Edge
-
 # 3. Functions
 
 ## ⚙️ JavaScript Functionality
 
 ### Architecture Overview
 
-The JavaScript implementation follows a modular approach with clear separation of concerns:
+The javascript used within my project consists of the following sections. Javascript code is functional and modular, with every function organised in this layout:
 
--   Authentication and state management
 -   Dynamic content rendering
 -   Animation and visual effects
 -   Form validation and user interaction
 -   Responsive behavior handling
+-   DOM and Event Listeners
+
+These make the code easily scalable and more robust. If one of the functions shows an error, it can easily be identified and be isolated for seperate tests and bug fixes. Hence it will not affect the rest of the code.
 
 ### Core Functions Overview
 
@@ -133,62 +110,34 @@ The JavaScript implementation follows a modular approach with clear separation o
 
 **Typewriter Effect Animation**
 
-```javascript
-function typeWriterEffect() {
-    // Creates animated text reveal for hero section
-    // Implements character-by-character typing simulation
-    // Used for main headline: "You can't spell 'AI' without 'I'"
-}
-```
+The typewriter effect produces a "typing" animation with javascript. A variable updates every few miliseconds using the `setInterval()` function and updates the text within the variable while updating the screen. This function has got extended logic to deal with special characters due to the complexity of having to handle not just plain text but also HTML tags. After the animation is completed, a blinking bar acting as the typing bar is revealed to produce a "typewriter" effect.
 
 **Scroll-Based Animations**
 
-```javascript
-function fadeInOnScroll() {
-    // Intersection Observer API for scroll-triggered animations
-    // Applies .visible class when elements enter viewport
-    // Handles fade-in effects for content sections
-}
-
-function appear() {
-    // Scale-based entrance animations for hero elements
-    // Triggers dramatic zoom effects on page load
-}
-```
+There are two types of scroll-based animations, Firstly, the fade-in animation and the appear animation. Both animations have a very similar method of implementation. If the element is within the viewport, a `.visible` or a `.show` class is added dynamically using javascript. The fade-in and and transformation will then be handled by the css classes.
 
 **Animated Statistics**
 
-```javascript
-function animateIntoNumber() {
-    // Number counter animations for statistics display
-    // Incremental counting with easing effects
-    // Synchronized with scroll position
-}
-```
+For animated statistics, for every card, a numerical variable will keep being incremented until it reaches its target value. The target values are not hardcoded but rather defined using the `data-target` attribute. This keeps the function modular, enabling it to be reused for 4 cards.
+
+**Interactive Animations**
+
+The interactive portal animation was one of the hardest functions to implement. The user would scroll all the way down to the page until there were no elements within the viewport. After which, a tiny circle which is user-controlled will slowly expand to occupy the full viewport width and height, with the animation acting as a section transition.
+For the interactive portal animation, the implementation might look complex but in reality, it is quite simple. A div with the id `detectme` is positioned at the bottom of the page, with an extra 100vh space above it to act as extra scroll space for all the elements to be scrolled out of. Then, the classes of the elements are toggled from `.hidden` to `.transitioning`, changing the state of the circle from a hidden, immutable size into a dynamic, scroll-controlled shape of which its radius would increase based on the scroll progress of the user. Once the user has scrolled fully, Some text would animate in creating a sleek animation that is user-controlled via scroll.
 
 #### 👤 Authentication System (`login.html`, `signup.html`)
 
 **Form Validation Engine**
 
-```javascript
-function validateInputs() {
-    // Real-time input validation for username and password
-    // Immediate visual feedback with error styling
-    // Integrates with Bootstrap form validation classes
-}
+There were 2 types of form validation:
 
-function validateUsername(inputElement, displayElement, errorElement) {
-    // Username validation: length, character restrictions
-    // Dynamic error message display
-    // Visual feedback with border color changes
-}
+1. (Main) Login / Signup form<br>
+    This form validated user input as follows:
+    - The user's username must not be empty and can only contain letters a-z, A-Z and 0-9.
+    - The length of the password should be no shorter than 8 characters.<br>
+    If the user did not meet the requirements, a red line would show that the user has not fulfiled the requirements of the form and hence prevent the form to be submitted.
 
-function validatePassword(inputElement, displayElement, errorElement) {
-    // Password strength validation
-    // Real-time strength indicator
-    // Security requirements enforcement
-}
-```
+2. Post creation
 
 **LocalStorage Authentication**
 
