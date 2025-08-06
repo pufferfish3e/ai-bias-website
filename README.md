@@ -213,6 +213,17 @@ The chart within this project used ApexCharts for data visualisation.
 -   **Accordion Interface**: Expandable content sections with glassmorphism
 -   **Portal Animation**: Page transition effects with expanding circles
 
+---
+
+## Additional Sources Used
+
+- https://codehim.com/animation-effects/fade-in-on-scroll-css-javascript/
+- https://bootstrapbrain.com/component/bootstrap-doughnut-chart-card-minimal-example/
+- https://www.gradientmagic.com/collection/darkbg
+- https://bootstrapexamples.com/@anonymous/marquee-animation
+- https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage
+- https://stackoverflow.com/questions/18042133/check-if-input-is-number-or-letter-javascript
+
 ## 📞 Contact & Support
 
 **Developer**: Kendrick Slamat
