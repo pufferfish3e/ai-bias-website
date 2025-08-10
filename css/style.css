@@ -924,7 +924,6 @@ input::placeholder {
 
 .post-image-container {
     object-fit: cover;
-    flex-basis: 300px;
 }
 
 #image-preview-container {
@@ -1081,7 +1080,6 @@ input::placeholder {
     }
 
     .post-image-container {
-        flex-basis: auto !important;
         margin-bottom: 1rem;
     }
 
@@ -1104,11 +1102,6 @@ input::placeholder {
 
 /* Tablet Devices (768px - 1023px) - Medium screen optimizations with balanced typography and spacing */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .post-image-container {
-        max-width: 300px;
-        min-width: 250px;
-    }
-
     #createPostSidebar {
         display: none !important;
     }
@@ -1204,11 +1197,8 @@ input::placeholder {
 
 /* Desktop Devices (min-width: 1024px) - Full-scale desktop layout with maximum typography and spacing */
 @media screen and (min-width: 1024px) {
-    .post-image-container {
-        max-width: 300px;
-        min-width: 250px;
-        display: flex;
-        flex-direction: column;
+    #posts-main-container {
+        width: 50%;
     }
 
     #createPostSidebar {
